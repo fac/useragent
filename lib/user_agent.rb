@@ -64,10 +64,6 @@ class UserAgent
       @comment == other.comment
   end
 
-  def to_s
-    to_str
-  end
-
   def to_str
     if @product && @version && @comment
       "#{@product}/#{@version} (#{@comment.join("; ")})"
@@ -79,4 +75,5 @@ class UserAgent
       @product
     end
   end
+  alias :to_s :to_str
 end

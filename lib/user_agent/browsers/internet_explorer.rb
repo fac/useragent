@@ -1,6 +1,7 @@
 class UserAgent
   module Browsers
     module InternetExplorer
+
       def self.extend?(agent)
         agent.application &&
           agent.application.comment &&
@@ -26,7 +27,6 @@ class UserAgent
 
       # Before version 4.0, Chrome Frame declared itself (unversioned) in a comment;
       # as of 4.0 it declares itself as a separate product with a version.
-
       def chromeframe
         application.comment.include?("chromeframe") || detect_product("chromeframe")
       end
@@ -38,6 +38,11 @@ class UserAgent
       def os
         OperatingSystems.normalize_os(application.comment[2])
       end
+
+      def localization
+        nil
+      end
+
     end
   end
 end

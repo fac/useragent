@@ -61,9 +61,11 @@ class UserAgent
       end
 
       private
+
         def detect_product(product)
           detect { |useragent| useragent.product.to_s.downcase == product.to_s.downcase }
         end
+
     end
   end
 end

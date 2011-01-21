@@ -1,6 +1,7 @@
 class UserAgent
   module Browsers
     module Opera
+
       def self.extend?(agent)
         agent.application && agent.application.product == "Opera"
       end
@@ -36,6 +37,7 @@ class UserAgent
           application.comment[2]
         end
       end
+
     end
   end
 end

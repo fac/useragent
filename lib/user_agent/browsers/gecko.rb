@@ -1,9 +1,6 @@
 class UserAgent
   module Browsers
     module Gecko
-      def self.extend?(agent)
-        agent.application && agent.application.product == "Mozilla"
-      end
 
       GeckoBrowsers = %w(
         Firefox
@@ -11,6 +8,10 @@ class UserAgent
         Iceweasel
         Seamonkey
       ).freeze
+
+      def self.extend?(agent)
+        agent.application && agent.application.product == "Mozilla"
+      end
 
       def browser
         GeckoBrowsers.detect { |browser| respond_to?(browser) } || super
@@ -36,6 +37,7 @@ class UserAgent
       def localization
         application.comment[3]
       end
+
     end
   end
 end

@@ -1,19 +1,39 @@
 require 'user_agent/comparable'
 require 'user_agent/browsers'
+require 'user_agent/linux_distributions'
 require 'user_agent/operating_systems'
+require 'user_agent/platforms'
+require 'user_agent/languages'
+require 'user_agent/countries'
 
 class UserAgent
-  # http://www.texsoft.it/index.php?m=sw.php.useragent
+  # Useful links
+  # User Agent strings parsing method:
+  #   http://www.texsoft.it/index.php?m=sw.php.useragent
+  # 
+  # User Agent strings parsing examples:
+  #   http://useragentstring.com/
+  #   http://www.zytrax.com/tech/web/browser_ids.htm
+  #   http://www.useragents.org/database.asp
+  #   http://useragent.xtractpro.com/
+  # 
+  # This list could be used for future improvements on mobile devices detection:
+  #   http://en.wikipedia.org/wiki/List_of_user_agents_for_mobile_phones
+  # 
+  # Useful to see which browsers detection need to be rock-solid (IE, Firefox, Chrome, Safari, Opera, Mobiles):
+  #   http://en.wikipedia.org/wiki/Usage_share_of_web_browsers
+  
   MATCHER = %r{
-    ^([^/\s]+)        # Product
-    /?([^\s]*)        # Version
-    (\s\(([^\)]*)\))? # Comment
+    ^([^\/\s]*)                       # Product token
+    (\s*\/([^\s()]*)(\s?PPC)?)?       # Optional version
+    \s*                               # Eat spaces
+    (\((([^()]|(\([^()]*\)))*)\))?\s* # Optional comment within parenthesis, allow one level of parenthesis inside the comment
   }x.freeze
 
   def self.parse(string)
     agents = []
-    while m = string.to_s.match(MATCHER)
-      agents << new(m[1], m[2], m[4])
+    while !string.nil? && !string.empty? && m = string.to_s.match(MATCHER)
+      agents << new(m[1], m[3], m[6])
       string = string.sub(m[0], '').strip
     end
     Browsers.extend(agents)
@@ -22,7 +42,7 @@ class UserAgent
 
   attr_reader :product, :version, :comment
 
-  def initialize(product, version = nil, comment = nil)
+  def initialize(product, version=nil, comment=nil)
     if product
       @product = product
     else
@@ -36,7 +56,7 @@ class UserAgent
     end
 
     if comment.respond_to?(:split)
-      @comment = comment.split("; ")
+      @comment = comment.split(";").map(&:strip).reject { |c| c.empty? }
     else
       @comment = comment
     end
@@ -76,4 +96,5 @@ class UserAgent
     end
   end
   alias :to_s :to_str
+
 end

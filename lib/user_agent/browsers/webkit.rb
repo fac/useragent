@@ -2,18 +2,34 @@ class UserAgent
   module Browsers
     module Webkit
 
-      BuildVersions = {
+      WEBKIT_BROWSERS = %w[
+        Arora
+        Android
+        BlackBerry
+        Chrome
+        Fluid
+        NetNewsWire
+        OmniWeb
+        Shiira
+        webOS
+      ]
+
+      BUILD_VERSIONS = {
+        "85"      => "1.0",
         "85.7"    => "1.0",
-        "85.8.5"  => "1.0.3",
         "85.8.2"  => "1.0.3",
+        "85.8.5"  => "1.0.3",
+        "100"     => "1.1",
         "124"     => "1.2",
+        "125"     => "1.2",
         "125.2"   => "1.2.2",
         "125.4"   => "1.2.3",
         "125.5.5" => "1.2.4",
         "125.5.6" => "1.2.4",
         "125.5.7" => "1.2.4",
-        "312.1.1" => "1.3",
+        "312"     => "1.3",
         "312.1"   => "1.3",
+        "312.1.1" => "1.3",
         "312.5"   => "1.3.1",
         "312.5.1" => "1.3.1",
         "312.5.2" => "1.3.1",
@@ -32,10 +48,19 @@ class UserAgent
         "418.9.1" => "2.0.4",
         "419"     => "2.0.4",
         "425.13"  => "2.2"
-      }.freeze
+      }
+
+      IOS_BUILD_VERSIONS = {
+        "419.3"     => "3.0",
+        "525.20"    => "3.1.1",
+        "528.18"    => "4.0",
+        "531.21.10" => "4.0.4",
+        "532.9"     => "4.0.5",
+        "533.17.9"  => "5.0.2"
+      }
 
       def self.extend?(agent)
-        agent.detect { |useragent| useragent.product == 'AppleWebKit' }
+        agent.detect_user_agent_by_product("AppleWebKit")
       end
 
       def webkit?
@@ -43,65 +68,66 @@ class UserAgent
       end
 
       def browser
-        if os =~ /Android/
-          'Android'
-        elsif detect_product('Chrome')
-          'Chrome'
-        elsif platform == 'webOS' || platform == 'BlackBerry'
-          platform
-        else
-          'Safari'
-        end
+        WEBKIT_BROWSERS.detect { |browser| detect_user_agent_by_product_or_comment(browser) } || "Safari"
       end
 
-      def build
-        webkit.version
-      end
-
-      # Prior to Safari 3, the user agent did not include a version number
       def version
-        if os =~ /CPU (?:iPhone |iPod )?OS ([\d_]+) like Mac OS X/
-          $1.gsub(/_/, '.')
-        elsif product = detect_product('Version')
+        # Newest browser first
+        if product = detect_user_agent_by_product("Version")
           product.version
-        elsif browser == 'Chrome'
-          chrome.version
-        else
-          BuildVersions[build]
-        end
-      end
 
-      def platform
-        if application.comment[0] =~ /webOS/
-          'webOS'
-        else
-          application.comment[0]
+        # Detect Safari iOS versions before desktop Safari (because iOS browser is 'Safari' too)
+        elsif os =~ /^iOS/i
+          IOS_BUILD_VERSIONS[build]
+
+        # Try to map legacy version of desktop Safari (before version 3)
+        # This mapping is only used for Macintosh/Safari, Windows/Safari began with version 3 (with the 'Version/X.Y' string)
+        elsif browser == "Safari"
+          BUILD_VERSIONS[build]
+
+        # Try to automatically detect the version of all other browsers
+        elsif v = send(browser).version
+          v.gsub(/^v/, '') # Handle 'OmniWeb/v563.15'
         end
       end
 
       def webkit
-        detect { |useragent| useragent.product == "AppleWebKit" }
+        detect_user_agent_by_product("AppleWebKit")
       end
 
-      def security
-        Security[application.comment[1]]
+      def build
+        detect_user_agent_by_product("AppleWebKit").version
       end
 
       def os
-        if platform == 'webOS'
+        if platform == "webOS"
           "Palm #{last.product} #{last.version}"
+
+        # Handle iOS
+        # Examples:
+        #   CPU like Mac OS X => 'iOS'
+        #   CPU iPhone OS 3_1_3 like Mac OS X => 'iOS 3.1.3'
+        elsif ua = detect_user_agent_by_comment(/CPU.*like Mac OS X/i)
+          ua.comment.detect { |comm| comm =~ /CPU (?:iPhone )?OS ([\d_]+) like Mac OS X/i }
+          "iOS#{" #{$1.gsub(/_/, '.')}" unless !$1 || $1.strip.empty?}"
         else
-          OperatingSystems.normalize_os(application.comment[2])
+          # Map OS name that needs to (mainly Windows)
+          if regexp_and_os = OperatingSystems::REGEXP_AND_NAMES.detect { |regexp_and_os| application.comment[2] =~ regexp_and_os[0] }
+            regexp_and_os[1]
+
+          # Otherwise return the OS name *almost* as is (just make the version prettier: e.g. 10_6_6 => 10.6.6)
+          else
+            application.comment[2].gsub(/_/, '.')
+          end
         end
       end
 
-      def localization
-        # TODO: Ensure that this is common to all webOS UserAgent
-        if platform == 'webOS'
-          application.comment[2]
-        else
-          application.comment[3]
-        end
+      def security
+        SECURITY[application.comment[1]]
+      end
+
+      def mobile?
+        browser == "webOS" || !detect_user_agent_by_product("Mobile").nil?
       end
 
     end

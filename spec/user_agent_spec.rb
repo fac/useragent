@@ -53,11 +53,12 @@ describe UserAgent do
   end
 
   describe "::MATCHER" do
-    specify { UserAgent::MATCHER.should_not =~ "" }
+    specify { UserAgent::MATCHER.should =~ "" }
     specify { UserAgent::MATCHER.should =~ "Mozilla" }
     specify { UserAgent::MATCHER.should =~ "Mozilla/5.0" }
     specify { UserAgent::MATCHER.should =~ "Mozilla/5.0 (Macintosh; U; Intel Mac OS X 10_5_3; en-us)" }
     specify { UserAgent::MATCHER.should =~ "Mozilla (Macintosh; U; Intel Mac OS X 10_5_3; en-us)" }
+    specify { UserAgent::MATCHER.should =~ "Mozilla/4.0 (compatible; MSIE 7.0; Windows NT 5.2; Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.1; SV1) ; .NET CLR 1.1.4322; .NET CLR 2.0.50727)" }
   end
 
   describe ".parse" do
@@ -84,6 +85,11 @@ describe UserAgent do
       UserAgent.parse("Mozilla/5.0").application.should == useragent
     end
 
+    it "should parse a single product and comment (no version)" do
+      useragent = UserAgent.new("Mozilla", nil, ["Macintosh"])
+      UserAgent.parse("Mozilla (Macintosh)").application.should == useragent
+    end
+
     it "should parse a single product, version, and comment" do
       useragent = UserAgent.new("Mozilla", "5.0", ["Macintosh", "U", "Intel Mac OS X 10_5_3", "en-us"])
       UserAgent.parse("Mozilla/5.0 (Macintosh; U; Intel Mac OS X 10_5_3; en-us)").application.should == useragent
@@ -92,11 +98,6 @@ describe UserAgent do
     it "should parse a single product, version, and comment, with space-padded semicolons" do
       useragent = UserAgent.new("Mozilla", "5.0", ["Macintosh", "U", "Intel Mac OS X 10_5_3", "en-us"])
       UserAgent.parse("Mozilla/5.0 (Macintosh; U; Intel Mac OS X 10_5_3 ; en-us; )").application.should == useragent
-    end
-
-    it "should parse a single product and comment" do
-      useragent = UserAgent.new("Mozilla", nil, ["Macintosh"])
-      UserAgent.parse("Mozilla (Macintosh)").application.should == useragent
     end
   end
 

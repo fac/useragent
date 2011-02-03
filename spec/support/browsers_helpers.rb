@@ -65,9 +65,9 @@ RSpec::Matchers.define :be_browser do |browser|
     webkit_conditions = !@ua.webkit? || (@ua.webkit.version == @webkit_version && @ua.build == @build)
     gecko_conditions  = !@ua.gecko? || (@ua.gecko_version == @gecko_version)
 
-    @ua.browser == browser && @ua.type == @type && @ua.version == @version && @ua.platform == @platform \
-    && @ua.os == @os && @ua.linux_distribution == @linux_distribution && @ua.language == @language \
-    && @ua.security == @security && @ua.mobile? == @mobile && ie_conditions && webkit_conditions && gecko_conditions
+    @ua.browser == browser && @ua.type == @type && @ua.version == @version && @ua.platform == @platform &&
+      @ua.os == @os && @ua.linux_distribution == @linux_distribution && @ua.language == @language &&
+      @ua.security == @security && @ua.mobile? == @mobile && ie_conditions && webkit_conditions && gecko_conditions
   end
 
   failure_message_for_should do |user_agent_string|

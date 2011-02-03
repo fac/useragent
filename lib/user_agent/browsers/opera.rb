@@ -30,9 +30,9 @@ class UserAgent
       end
 
       def version
-        if browser == "Opera Mini"
-          application.comment.detect { |comm| comm =~ /Opera Mini/i }.split('/')[1]
-
+        if browser == "Opera Mini" && ua = detect_user_agent_by_comment(/Opera Mini/i)
+            ua.comment.detect { |comm| comm =~ /Opera Mini/i }.split('/')[1]
+          
         elsif product = detect_user_agent_by_product("Version")
           product.version
 
@@ -67,7 +67,11 @@ class UserAgent
       def language
         # Handle language that is not the last part of comment
         # e.g.: Mozilla/5.0 (Windows NT 5.1; U; de; rv:1.8.0) Gecko/20060728 Firefox/1.5.0 Opera 9.23
-        application.comment.last =~ /^rv:/ ? application.comment[application.comment.size-2] : application.comment.last
+        if application.comment
+          application.comment.last =~ /^rv:/ ? application.comment[application.comment.size-2] : application.comment.last
+        else
+          super
+        end
       end
 
       def security

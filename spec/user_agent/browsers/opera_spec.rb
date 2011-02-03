@@ -42,6 +42,7 @@ describe UserAgent::Browsers::Opera do
       it { "Opera/9.23 (Windows NT 6.0; U; fi)".should be_browser("Opera").version("9.23").platform("Windows").os("Windows Vista").language("fi").security(:strong) }
       it { "Opera/9.23 (Windows NT 6.0; U; da)".should be_browser("Opera").version("9.23").platform("Windows").os("Windows Vista").language("da").security(:strong) }
       it { "Opera/9.27 (Windows NT 5.1; U; en)".should be_browser("Opera").version("9.27").platform("Windows").os("Windows XP").language("en").security(:strong) }
+      it { "Opera/9.80 (Windows NT 5.1; U; ru) Presto/2.7.62 Version/11.01".should be_browser("Opera").version("11.01").platform("Windows").os("Windows XP").language("ru").security(:strong) }
     end
 
     describe "Macintosh" do
@@ -63,13 +64,15 @@ describe UserAgent::Browsers::Opera do
     describe "Wii" do
       # Console
       it { "Opera/9.23 (Nintendo Wii; U; ; 1038-58; Wii Internet Channel/1.0; en)".should be_browser("Opera").version("9.23").type(:console).platform("Nintendo Wii").os(nil).language("en").security(:strong) }
+      it { "Opera/9.30 (Nintendo Wii; U; ; 3642; en)".should be_browser("Opera").version("9.30").type(:console).platform("Nintendo Wii").os(nil).language("en").security(:strong) }
     end
   end
-  
+
   describe "Opera Mini" do
     it { "Opera/9.80 (Series 60; Opera Mini/5.1.22784/22.394; U; en) Presto/2.5.25 Version/10.54".should be_browser("Opera Mini").version("5.1.22784").language("en").security(:strong).mobile(true) }
+    it { "SAMSUNG-SGH-A797/A797UCIIB; Mozilla/5.0 (Profile/MIDP-2.0 Configuration/CLDC-1.1; Opera Mini/att/4.2.15354; U; en-US) Opera 9.50".should be_browser("Opera Mini").version("att").language("en-US").security(:strong).mobile(true) }
   end
-  
+
   describe "Opera Mobile" do
     it { "Opera/9.80 (Android; Linux; Opera Mobi/ADR-1012221546; U; pl) Presto/2.7.60 Version/10.5".should be_browser("Opera Mobile").version("10.5").platform("Android").os("Android").language("pl").security(:strong).mobile(true) }
     it { "Opera/9.80 (Android 2.2; Opera Mobi/-2118645896; U; pl) Presto/2.7.60 Version/10.5".should be_browser("Opera Mobile").version("10.5").platform("Android").os("Android 2.2").language("pl").security(:strong).mobile(true) }

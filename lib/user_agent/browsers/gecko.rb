@@ -102,9 +102,9 @@ class UserAgent
           else
             # In this only case (comments with 3 parameters and the revision is the last comment), there is no language:
             # - Mozilla/5.0 (Macintosh; Intel Mac OS X 10.6; rv:2.0b8) Gecko/20100101 Firefox/4.0b8
-            if !(ua.comment.last =~ /^rv:(.*)/ \
-              || Platforms::REGEXP_AND_NAMES.detect { |regexp_and_platform| ua.comment.last =~ regexp_and_platform[0] } \
-              || SECURITY.include?(ua.comment.last))
+            if !(ua.comment.last =~ /^rv:(.*)/ ||
+                  Platforms::REGEXP_AND_NAMES.detect { |regexp_and_platform| ua.comment.last =~ regexp_and_platform[0] } ||
+                  SECURITY.include?(ua.comment.last))
               ensure_existing_language(ua.comment.last)
             else
               super

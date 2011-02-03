@@ -18,8 +18,8 @@ class UserAgent
       ]
 
       def self.extend?(agent)
-        !(REGEXP_AND_NAMES.detect { |regex_and_browser| agent.detect_user_agent_by_product(regex_and_browser[0]) }.nil? \
-          && REGEXP_AND_NAMES.detect { |regex_and_browser| agent.detect_user_agent_by_comment(regex_and_browser[0]) }.nil?)
+        !(REGEXP_AND_NAMES.detect { |regex_and_browser| agent.detect_user_agent_by_product(regex_and_browser[0]) }.nil? &&
+          REGEXP_AND_NAMES.detect { |regex_and_browser| agent.detect_user_agent_by_comment(regex_and_browser[0]) }.nil?)
       end
 
       def browser

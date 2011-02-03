@@ -7,6 +7,7 @@ require 'user_agent/languages'
 require 'user_agent/countries'
 
 class UserAgent
+  
   # Useful links
   # User Agent strings parsing method:
   #   http://www.texsoft.it/index.php?m=sw.php.useragent
@@ -28,7 +29,7 @@ class UserAgent
     (\s*\/([^\s()]*)(\s?PPC)?)?       # Optional version
     \s*                               # Eat spaces
     (\((([^()]|(\([^()]*\)))*)\))?\s* # Optional comment within parenthesis, allow one level of parenthesis inside the comment
-  }x.freeze
+  }x
 
   def self.parse(string)
     agents = []

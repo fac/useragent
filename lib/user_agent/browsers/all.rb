@@ -127,18 +127,18 @@ class UserAgent
     private
 
       def detect_name_and_version_from(regexp_and_names, options={})
-        detect_name_and_version_in_comment(regexp_and_names, options) \
-          || detect_name_and_version_in_product(regexp_and_names, options)
+        detect_name_and_version_in_comment(regexp_and_names, options) ||
+          detect_name_and_version_in_product(regexp_and_names, options)
       end
 
       def detect_name_from(regexp_and_names)
-        detect_name_and_version_in_product(regexp_and_names, :name_only => true) \
-          || detect_name_and_version_in_comment(regexp_and_names, :name_only => true)
+        detect_name_and_version_in_product(regexp_and_names, :name_only => true) ||
+          detect_name_and_version_in_comment(regexp_and_names, :name_only => true)
       end
 
       def detect_version_from(regexp_and_names)
-        detect_name_and_version_in_comment(regexp_and_names, :version_only => true) \
-          || detect_name_and_version_in_product(regexp_and_names, :version_only => true)
+        detect_name_and_version_in_comment(regexp_and_names, :version_only => true) ||
+          detect_name_and_version_in_product(regexp_and_names, :version_only => true)
       end
 
       def detect_name_and_version_in_comment(regexp_and_names, options={ :name_only => false, :version_only => false })

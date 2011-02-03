@@ -60,7 +60,7 @@ describe UserAgent::Browsers::InternetExplorer do
         end
       end
 
-      it { "Mozilla/4.0 (compatible; MSIE 4.01; Mac_PowerPC)".should be_browser("IE").version("4.01").platform("Macintosh").os(nil).compatible(true) }
+      it { "Mozilla/4.0 (compatible; MSIE 4.01; Mac_PowerPC)".should be_browser("IE").version("4.01").platform("Macintosh").compatible(true) }
 
       it { "Mozilla/4.0 (compatible; MSIE 5.00; Windows 98)".should be_browser("IE").version("5.00").platform("Windows").os("Windows 98").compatible(true) }
 
@@ -92,7 +92,7 @@ describe UserAgent::Browsers::InternetExplorer do
       it { "Mozilla/4.0 (compatible; MSIE 5.0; Windows NT 5.2; .NET CLR 1.1.4322)".should be_browser("IE").version("5.0").platform("Windows").os("Windows Server 2003").compatible(true) }
       it { "Mozilla/4.0 (compatible; MSIE 5.0; Windows NT 5.0)".should be_browser("IE").version("5.0").platform("Windows").os("Windows 2000").compatible(true) }
 
-      it { "Mozilla/4.0 (compatible; MSIE 5.5;)".should be_browser("IE").version("5.5").platform(nil).os(nil).compatible(true) }
+      it { "Mozilla/4.0 (compatible; MSIE 5.5;)".should be_browser("IE").version("5.5").platform(nil).compatible(true) }
       it { "Mozilla/4.0 (compatible;MSIE 5.5; Windows 98)".should be_browser("IE").version("5.5").platform("Windows").os("Windows 98").compatible(true) }
       it { "Mozilla/4.0 (compatible; MSIE 5.5; Windows NT)".should be_browser("IE").version("5.5").platform("Windows").os("Windows NT").compatible(true) }
 
@@ -160,7 +160,7 @@ describe UserAgent::Browsers::InternetExplorer do
         end
       end
 
-      it { "Mozilla/4.0 (compatible; MSIE 7.0)".should be_browser("IE").version("7.0").platform(nil).os(nil).compatible(true) }
+      it { "Mozilla/4.0 (compatible; MSIE 7.0)".should be_browser("IE").version("7.0").platform(nil).compatible(true) }
 
       it { "Mozilla/4.0 (compatible; MSIE 7.0; Windows NT 5.0)".should be_browser("IE").version("7.0").platform("Windows").os("Windows 2000").compatible(true) }
       it { "Mozilla/4.0 (compatible; MSIE 7.0; Windows NT 4.0)".should be_browser("IE").version("7.0").platform("Windows").os("Windows NT 4.0").compatible(true) }

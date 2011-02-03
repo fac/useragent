@@ -110,14 +110,16 @@ class UserAgent
         elsif ua = detect_user_agent_by_comment(/CPU.*like Mac OS X/i)
           ua.comment.detect { |comm| comm =~ /CPU (?:iPhone )?OS ([\d_]+) like Mac OS X/i }
           "iOS#{" #{$1.gsub(/_/, '.')}" unless !$1 || $1.strip.empty?}"
-        else
-          # Map OS name that needs to (mainly Windows)
-          if regexp_and_os = OperatingSystems::REGEXP_AND_NAMES.detect { |regexp_and_os| application.comment[2] =~ regexp_and_os[0] }
-            regexp_and_os[1]
 
-          # Otherwise return the OS name *almost* as is (just make the version prettier: e.g. 10_6_6 => 10.6.6)
-          else
+        else
+          name_and_version = detect_name_and_version_from(OperatingSystems::REGEXP_AND_NAMES)
+          # Map OS name that needs to (mainly Windows)
+          if platform == "Android" || !name_and_version
+            # Return the OS name *almost* as is (just make the version prettier: e.g. 10_6_6 => 10.6.6)
             application.comment[2].gsub(/_/, '.')
+            
+          else
+            name_and_version
           end
         end
       end

@@ -112,12 +112,12 @@ class UserAgent
         end
       end
 
-      def collect_user_agent_by_comment(comment)
-        collect { |ua| ua.comment.detect { |c| c =~ comment } unless ua.comment.nil? }
-      end
-
       def detect_user_agent_by_product_or_comment(symbol)
         detect_user_agent_by_product(/#{symbol}/i) || detect_user_agent_by_comment(/#{symbol}/i)
+      end
+
+      def collect_user_agent_by_comment(comment)
+        collect { |ua| ua.comment.detect { |c| c =~ comment } unless ua.comment.nil? }
       end
 
       def method_missing(method, *args, &block)

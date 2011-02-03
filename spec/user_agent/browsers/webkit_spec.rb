@@ -37,6 +37,12 @@ describe UserAgent::Browsers::Webkit do
     describe "Android" do
       it { "Mozilla/5.0 (Linux; U; Android 1.5; de-; HTC Magic Build/PLAT-RC33) AppleWebKit/528.5+ (KHTML, like Gecko) Version/3.1.2 Mobile Safari/525.20.1".should be_browser("Android").version("3.1.2").webkit_version("528.5+").build("528.5+").platform("Android").os("Android 1.5").language("de").security(:strong).mobile(true) }
       it { "Mozilla/5.0 (Linux; U; Android 2.1-update1; en-us; Nexus One Build/ERE27) AppleWebKit/530.17 (KHTML, like Gecko) Version/4.0 Mobile Safari/530.17 Chrome/4.1.249.1025".should be_browser("Android").version("4.0").webkit_version("530.17").build("530.17").platform("Android").os("Android 2.1-update1").language("en-US").security(:strong).mobile(true) }
+      it { "Mozilla/5.0 (Linux; U; Android 2.2; ja-jp; SBM003SH Build/S1100) AppleWebKit/533.1 (KHTML, like Gecko) Version/4.0 Mobile Safari/533.1".should be_browser("Android").version("4.0").webkit_version("533.1").build("533.1").platform("Android").os("Android 2.2").language("ja-JP").security(:strong).mobile(true) }
+      it { "Mozilla/5.0 (Linux; U; Android 1.6; es-mx; SonyEricssonX10a Build/R2BA026) AppleWebKit/528.5+ (KHTML, like Gecko) Version/3.1.2 Mobile Safari/525.20.1".should be_browser("Android").version("3.1.2").webkit_version("528.5+").build("528.5+").platform("Android").os("Android 1.6").language("es-MX").security(:strong).mobile(true) }
+      it { "Mozilla/5.0 (Linux; U; Android 2.2.1; en-us; Droid Build/FRG83D) AppleWebKit/533.1 (KHTML, like Gecko) Version/4.0 Mobile Safari/533.1".should be_browser("Android").version("4.0").webkit_version("533.1").build("533.1").platform("Android").os("Android 2.2.1").language("en-US").security(:strong).mobile(true) }
+      it { "Mozilla/5.0 (Linux; U; Android 1.5; en-us; MB200 Build/CUPCAKE) AppleWebKit/528.5+ (KHTML, like Gecko) Version/3.1.2 Mobile Safari/525.20.1".should be_browser("Android").version("3.1.2").webkit_version("528.5+").build("528.5+").platform("Android").os("Android 1.5").language("en-US").security(:strong).mobile(true) }
+      it { "Mozilla/5.0 (Linux; U; Android 2.2.1; en-us; T-Mobile myTouch 3G Build/FRG83D) AppleWebKit/533.1 (KHTML, like Gecko) Version/4.0 Mobile Safari/533.1".should be_browser("Android").version("4.0").webkit_version("533.1").build("533.1").platform("Android").os("Android 2.2.1").language("en-US").security(:strong).mobile(true) }
+      it { "Mozilla/5.0 (Linux; U; Android 2.1-update1; en-us; SCH-I500 Build/ECLAIR) AppleWebKit/530.17 (KHTML, like Gecko) Version/4.0 Mobile Safari/530.17".should be_browser("Android").version("4.0").webkit_version("530.17").build("530.17").platform("Android").os("Android 2.1-update1").language("en-US").security(:strong).mobile(true) }
     end
 
     describe "BlackBerry" do
@@ -51,6 +57,10 @@ describe UserAgent::Browsers::Webkit do
 
       describe "Macintosh" do
         it { "Mozilla/5.0 (Macintosh; U; Intel Mac OS X 10_6_5; en-US) AppleWebKit/534.10 (KHTML, like Gecko) Chrome/8.0.552.231 Safari/534.10".should be_browser("Chrome").version("8.0.552.231").webkit_version("534.10").build("534.10").platform("Macintosh").os("Intel Mac OS X 10.6.5").language("en-US").security(:strong) }
+      end
+      
+      describe "Linux" do
+        it { "Mozilla/5.0 (X11; U; Linux i686; en-US) AppleWebKit/534.10 (KHTML, like Gecko) Ubuntu/10.10 Chromium/8.0.552.237 Chrome/8.0.552.237 Safari/534.10".should be_browser("Chrome").version("8.0.552.237").webkit_version("534.10").build("534.10").platform("Linux").os("Linux i686").linux_distribution("Ubuntu 10.10").language("en-US").security(:strong) }
       end
     end
 
@@ -148,6 +158,7 @@ describe UserAgent::Browsers::Webkit do
       describe "iPod" do
         it { "Mozilla/5.0 (iPod; U; CPU like Mac OS X; en) AppleWebKit/420.1 (KHTML, like Gecko) Version/3.0 Mobile/4A102 Safari/419".should be_browser("Safari").version("3.0").webkit_version("420.1").build("420.1").platform("iPod").os("iOS").language("en").security(:strong).mobile(true) }
         it { "Mozilla/5.0 (iPod; U; CPU iPhone OS 3_1_3 like Mac OS X; en-us) AppleWebKit/528.18 (KHTML, like Gecko) Version/4.0 Mobile/7E18 Safari/528.16".should be_browser("Safari").version("4.0").webkit_version("528.18").build("528.18").platform("iPod").os("iOS 3.1.3").language("en-US").security(:strong).mobile(true) }
+        it { "Mozilla/5.0 (iPod; U; CPU iPhone OS 4_1 like Mac OS X; en-us) AppleWebKit/532.9 (KHTML, like Gecko) Version/4.0.5 Mobile/8B117 Safari/6531.22.7".should be_browser("Safari").version("4.0.5").webkit_version("532.9").build("532.9").platform("iPod").os("iOS 4.1").language("en-US").security(:strong).mobile(true) }
       end
 
       describe "iPad" do

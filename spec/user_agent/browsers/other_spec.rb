@@ -57,7 +57,8 @@ describe UserAgent::Browsers::Other do
   end
 
   describe "Playstation 3" do
-    it { "Mozilla/5.0 (PLAYSTATION 3; 3.55)".should be_browser("Playstation 3") }
+    it { "Mozilla/5.0 (PLAYSTATION 3; 3.55)".should be_browser("Playstation 3").version("3.55").platform("Playstation 3") }
+    it { "Mozilla/5.0 (PLAYSTATION 3; 1.00)".should be_browser("Playstation 3").version("1.00").platform("Playstation 3") }
   end
 
   describe "Playstation Portable" do

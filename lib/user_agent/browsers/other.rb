@@ -25,9 +25,20 @@ class UserAgent
       def browser
         detect_name_from(REGEXP_AND_NAMES)
       end
+      
+      def platform
+        if browser == "Playstation 3"
+          browser
+        else
+          super
+        end
+      end
 
       def version
-        if v = detect_version_from(REGEXP_AND_NAMES)
+        if platform == "Playstation 3" && application.comment
+          application.comment[1]
+        
+        elsif v = detect_version_from(REGEXP_AND_NAMES)
           v.strip!
           v unless v.empty?
         end

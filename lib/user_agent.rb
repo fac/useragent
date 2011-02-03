@@ -17,6 +17,7 @@ class UserAgent
   #   http://www.zytrax.com/tech/web/browser_ids.htm
   #   http://www.useragents.org/database.asp
   #   http://useragent.xtractpro.com/
+  #   http://www.botsvsbrowsers.com
   # 
   # This list could be used for future improvements on mobile devices detection:
   #   http://en.wikipedia.org/wiki/List_of_user_agents_for_mobile_phones

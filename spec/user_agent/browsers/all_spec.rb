@@ -52,6 +52,7 @@ describe UserAgent::Browsers::All do
   describe "#platform" do
     before(:all) do
       @nintendo_wii      = UserAgent.parse("Opera/9.23 (Nintendo Wii; U; ; 1038-58; Wii Internet Channel/1.0; en)")
+      @nintendo_ds       = UserAgent.parse("Opera/9.23 (Nintendo DS v4; U; ; 1038-58; en)")
       @web_tv            = UserAgent.parse("WebTV 1.2 Mozilla/3.0 WebTV/1.2 (compatible; MSIE 2.0)")
       @windows           = UserAgent.parse("Mozilla/5.0 (Windows; U; Windows NT 5.1; en-US; rv:1.8.1.14) Gecko/20080404 Firefox/2.0.0.14")
       @i_pad             = UserAgent.parse("Mozilla/5.0 (iPad; U; CPU OS 3_2 like Mac OS X; en-us) AppleWebKit/531.21.10 (KHTML, like Gecko) Version/4.0.4 Mobile/7B367 Safari/531.21.10")
@@ -77,6 +78,7 @@ describe UserAgent::Browsers::All do
     end
 
     specify { @nintendo_wii.platform.should      == "Nintendo Wii" }
+    specify { @nintendo_ds.platform.should       == "Nintendo DS" }
     specify { @web_tv.platform.should            == "WebTV" }
     specify { @windows.platform.should           == "Windows" }
     specify { @i_pad.platform.should             == "iPad" }
@@ -150,6 +152,9 @@ describe UserAgent::Browsers::All do
       @web_tv_1            = UserAgent.parse("Fake/3.0 WebTV/2.6 (compatible; MSIE 2.0)")
       @web_tv_2            = UserAgent.parse("WebTV 2.6 Mozilla/4.0 (compatible; MSIE 4.0; WebTV/2.6)")
       @amiga_os            = UserAgent.parse("AmigaVoyager/3.2 (AmigaOS/MC680x0)")
+      @black_berry_os      = UserAgent.parse("Fake/5.0 (BlackBerry; U; BlackBerry 9800; en)")
+      @nintendo_ds         = UserAgent.parse("Fake/5.0 (Nintendo DS v4; U; M3 Adapter CF + PassMe2; en-US; rv:1.8.0.6)")
+      @nintendo_dsi        = UserAgent.parse("Fake/5.0 (Nintendo DSi; U; M3 Adapter CF + PassMe2; en-US; rv:1.8.0.6)")
     end
 
     specify { @windows_7.os.should == "Windows 7" }
@@ -172,6 +177,9 @@ describe UserAgent::Browsers::All do
     specify { [@os2_1, @os2_2, @os2_3].all? { |ua| ua.os.should == "OS/2 1.2.3" } }
     specify { [@web_tv_1, @web_tv_2].all? { |ua| ua.os.should == "WebTV 2.6" } }
     specify { @amiga_os.os.should == "AmigaOS" }
+    specify { @black_berry_os.os.should == "BlackBerryOS" }
+    specify { @nintendo_ds.os.should == "Nintendo DS v4" }
+    specify { @nintendo_dsi.os.should == "Nintendo DS i" }
   end
 
   describe "#linux_distribution" do

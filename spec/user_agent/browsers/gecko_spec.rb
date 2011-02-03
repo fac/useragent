@@ -68,7 +68,7 @@ describe UserAgent::Browsers::Gecko do
   describe "Minefield" do
     it { "Mozilla/5.0 (Windows NT 6.1; WOW64; rv:2.0b4pre) Gecko/20100815 Minefield/4.0b4pre".should be_browser("Minefield").version("4.0b4pre").gecko_version("20100815").platform("Windows").os("Windows 7").security(:strong) }
   end
-  
+
   describe "Netscape" do
     it { "Mozilla/5.0 (Windows; U; Windows NT 6.0; en-US; rv:1.8.1.8pre) Gecko/20070928 Firefox/2.0.0.7 Navigator/9.0RC1".should be_browser("Netscape").version("9.0RC1").gecko_version("20070928").platform("Windows").os("Windows Vista").language("en-US").security(:strong) }
   end
@@ -86,11 +86,11 @@ describe UserAgent::Browsers::Gecko do
   describe "Sunrise" do
     it { "Mozilla/6.0 (X11; U; Linux x86_64; en-US; rv:2.9.0.3) Gecko/2009022510 FreeBSD/ Sunrise/4.0.1/like Safari".should be_browser("Sunrise").version("4.0.1").gecko_version("2009022510").platform("FreeBSD").os("FreeBSD").language("en-US").security(:strong) }
   end
-  
+
   describe "Thunderbird" do
     it { "Mozilla/5.0 (X11; U; Linux i686; en-US; rv:1.9.2.13) Gecko/20101208 Lightning/1.0b2 Thunderbird/3.1.7".should be_browser("Thunderbird").version("3.1.7").gecko_version("20101208").platform("Linux").os("Linux i686").language("en-US").security(:strong) }
   end
-  
+
   describe "Firefox" do
     describe "Windows" do
       it { "Mozilla/5.0 (Windows; U; Windows NT 5.1; en-US; rv:1.8.0.12) Gecko/20070508 Firefox/1.5.0.12".should be_browser("Firefox").version("1.5.0.12").gecko_version("20070508").platform("Windows").os("Windows XP").language("en-US").security(:strong) }
@@ -158,6 +158,11 @@ describe UserAgent::Browsers::Gecko do
     describe "BeOS" do
       it { "Mozilla/5.0 (BeOS; U; BeOS BePC; en-US; rv:1.8.1b2) Gecko/20060901 Firefox/2.0b2".should be_browser("Firefox").version("2.0b2").gecko_version("20060901").platform("BeOS").os("BeOS BePC").language("en-US").security(:strong) }
       it { "Mozilla/5.0 (BeOS; U; BeOS-BePC; en-US; rv:1.8.1b2) Gecko/20060901 Firefox/2.0b2".should be_browser("Firefox").version("2.0b2").gecko_version("20060901").platform("BeOS").os("BeOS BePC").language("en-US").security(:strong) }
+    end
+
+    describe "Nintendo DS" do
+      it { "Mozilla/5.0 (Nintendo DS v4; U; M3 Adapter CF + PassMe2; en-US; rv:1.8.0.6 ) Gecko/20060728 Firefox/1.5.0.6 (firefox.gba.ds)".should be_browser("Firefox").version("1.5.0.6").gecko_version("20060728").platform("Nintendo DS").os("Nintendo DS v4").language("en-US").security(:strong) }
+      it { "Mozilla/5.0 (Nintendo DSi; U; M3 Adapter CF + PassMe2; en-US; rv:1.8.0.6 ) Gecko/20060728 Firefox/1.5.0.6 (firefox.gba.ds)".should be_browser("Firefox").version("1.5.0.6").gecko_version("20060728").platform("Nintendo DS").os("Nintendo DS i").language("en-US").security(:strong) }
     end
   end
 

@@ -3,6 +3,7 @@ class UserAgent
 
     REGEXP_AND_NAMES = [
       [/nintendo\s+wii/i,     "Nintendo Wii"],
+      [/nintendo\s+ds/i,      "Nintendo DS"],
       [/webtv/i,              "WebTV"],
       [/win(dows)?/i,         "Windows"],
       [/ipad/i,               "iPad"],

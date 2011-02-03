@@ -5,7 +5,7 @@ describe UserAgent::OperatingSystems do
   describe "REGEXP_AND_NAMES" do
 
     # OS with version detection
-    %w[FreeBSD OpenBSD NetBSD SunOS BeOS OS/2 WebTV].each do |os|
+    ["FreeBSD", "OpenBSD", "NetBSD", "SunOS", "BeOS", "OS/2", "WebTV", "Nintendo DS",].each do |os|
       describe "#{os} detection" do
         context "no version" do
           subject { described_class::REGEXP_AND_NAMES.detect { |regex_and_platform| regex_and_platform[0] =~ os } }

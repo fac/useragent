@@ -68,7 +68,7 @@ class UserAgent
       end
 
       def os
-        if %w[Windows OS/2].include?(platform) && os_name = detect_name_and_version_in_comment(OperatingSystems::REGEXP_AND_NAMES)
+        if ["Windows", "OS/2", "Nintendo DS"].include?(platform) && os_name = detect_name_and_version_in_comment(OperatingSystems::REGEXP_AND_NAMES)
           os_name
 
         elsif os_name = detect_name_and_version_in_product(OperatingSystems::REGEXP_AND_NAMES)

@@ -22,9 +22,9 @@ UserAgent can detect the following linux distributions (and versions) in any giv
 UserAgent can detect languages/countries based on the {ISO-639-2}[http://www.loc.gov/standards/iso639-2/ISO-639-2_utf-8.txt] list (for language codes) and the {ISO-3166-1}[http://www.iso.org/iso/list-en1-semic-3.txt] list (for country codes) in any given User Agent string. The detected formats are "en", "en-US" and "en_US".
 
 
-=== Examples
+== Examples
 
-==== Retrieve User Agent information from a User Agent string
+=== Retrieve User Agent information from a User Agent string
 
   # Safari 4.0.4 on iPad 3.2
   user_agent = UserAgent.parse("Mozilla/5.0 (iPad; U; CPU OS 3_2 like Mac OS X; en-us) AppleWebKit/531.21.10 (KHTML, like Gecko) Version/4.0.4 Mobile/7B367 Safari/531.21.10")
@@ -70,7 +70,7 @@ UserAgent can detect languages/countries based on the {ISO-639-2}[http://www.loc
   user_agent.security           # => :strong
   user_agent.mobile?            # => true
 
-==== Comparisons of browsers
+=== Comparisons of browsers
 
   Browser = Struct.new(:browser, :version)
   SupportedBrowsers = [

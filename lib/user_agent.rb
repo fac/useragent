@@ -7,26 +7,26 @@ require 'user_agent/languages'
 require 'user_agent/countries'
 
 class UserAgent
-  
+
   # Useful links
   # User Agent strings parsing method:
   #   http://www.texsoft.it/index.php?m=sw.php.useragent
-  # 
+  #
   # User Agent strings parsing examples:
   #   http://useragentstring.com/
   #   http://www.zytrax.com/tech/web/browser_ids.htm
   #   http://www.useragents.org/database.asp
   #   http://useragent.xtractpro.com/
   #   http://www.botsvsbrowsers.com
-  # 
+  #
   # This list could be used for future improvements on mobile devices detection:
   #   http://en.wikipedia.org/wiki/List_of_user_agents_for_mobile_phones
-  # 
+  #
   # Useful to see which browsers detection need to be rock-solid (IE, Firefox, Chrome, Safari, Opera, Mobiles):
   #   http://en.wikipedia.org/wiki/Usage_share_of_web_browsers
-  
+
   MATCHER = %r{
-    ^([^\/\s]*)                       # Product token
+    ^([^\/\s\(\)]*)                   # Product token
     (\s*\/([^\s()]*)(\s?PPC)?)?       # Optional version
     \s*                               # Eat spaces
     (\((([^()]|(\([^()]*\)))*)\))?\s* # Optional comment within parenthesis, allow one level of parenthesis inside the comment

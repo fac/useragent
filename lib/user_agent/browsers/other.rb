@@ -9,7 +9,8 @@ class UserAgent
         [%r{AOL[-/\s]?(.*)}i,                    "AOL"],
         [%r{Avant Browser[-/\s]?(.*)}i,          "Avant Browser"], # Latest release: 2010 Build 130, 1.26.2011
         [%r{BlackBerry[0-9]{4}}i,                "BlackBerry"],
-        [%r{Galaxy[-/\s]?(.*)}i,                 "Galaxy"],
+        [%r{Galaxy/(.*)}i,                       "Galaxy"],
+        [%r{Kindle[-/\s]?(.*)}i,                 "Kindle"],
         [%r{Konqueror[-/\s]?(.*)}i,              "Konqueror"],
         [%r{Lynx[-/\s]?(.*)}i,                   "Lynx"],
         [%r{NetPositive[-/\s]?(.*)}i,            "NetPositive"],

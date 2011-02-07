@@ -20,12 +20,12 @@ describe UserAgent::Browsers::Other do
     it { "Mozilla/4.0 (compatible; MSIE 7.0; America Online Browser 1.1; Windows NT 5.1; (R1 1.5); .NET CLR 2.0.50727; InfoPath.1)".should be_browser("America Online Browser").version("1.1").platform("Windows").os("Windows XP").compatible(true) }
   end
 
-  describe "AOL" do
-    it { "Mozilla/4.0 (compatible; MSIE 8.0; AOL 9.6; AOLBuild 4340.27; Windows NT 5.1; Trident/4.0; .NET CLR 1.1.4322; .NET CLR 2.0.50727; .NET CLR 3.0.4506.2152; .NET CLR 3.5.30729)".should be_browser("AOL").version("9.6").platform("Windows").os("Windows XP").compatible(true) }
-  end
-
   describe "Amiga" do
     it { "AmigaVoyager/3.2 (AmigaOS/MC680x0)".should be_browser("AmigaVoyager").version("3.2").os("AmigaOS") }
+  end
+
+  describe "AOL" do
+    it { "Mozilla/4.0 (compatible; MSIE 8.0; AOL 9.6; AOLBuild 4340.27; Windows NT 5.1; Trident/4.0; .NET CLR 1.1.4322; .NET CLR 2.0.50727; .NET CLR 3.0.4506.2152; .NET CLR 3.5.30729)".should be_browser("AOL").version("9.6").platform("Windows").os("Windows XP").compatible(true) }
   end
 
   describe "Avant Browser" do
@@ -38,6 +38,12 @@ describe UserAgent::Browsers::Other do
 
   describe "Galaxy" do
     it { "Galaxy/1.0 [en] (Mac OS X 10.5.6; U; en)".should be_browser("Galaxy").version("1.0").platform("Macintosh").language("en").security(:strong) }
+  end
+
+  describe "Kindle" do
+    it { "Mozilla/4.0 (compatible; Linux 2.6.10) NetFront/3.3 Kindle/1.0 (screen 600x800)".should be_browser("Kindle").version("1.0").platform("Linux").os("Linux 2.6.10") }
+    it { "Mozilla/5.0 (Linux; U; en-US) AppleWebKit/528.5+ (KHTML, like Gecko, Safari/528.5+) Version/4.0 Kindle/3.0 (screen 600x800; rotate)".should be_browser("Kindle").version("3.0").platform("Linux").os("Linux").language("en-US").security(:strong) }
+    it { "Mozilla/5.0 (Windows; U; Windows NT 6.1; zh-CN; rv:1.9.2.7) Gecko/20100713 Kindle/1.0 ( .NET CLR 3.5.30729)".should be_browser("Kindle").version("1.0").platform("Windows").os("Windows 7").language("zh-CN").security(:strong) }
   end
 
   describe "Konqueror" do

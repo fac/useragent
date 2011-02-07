@@ -56,14 +56,16 @@ class UserAgent
 
       # Linux specific
       def linux_distribution
-        if distro = detect_name_and_version_from(LinuxDistributions::REGEXP_AND_NAMES)
-          distro
-        else
-          # Special case for Red Hat
-          if detect_user_agent_by_product(/red/i) && red_hat = detect_user_agent_by_product(/hat/i)
-            "Red Hat#{" #{red_hat.version}" if red_hat.version}"
+        if platform == "Linux"
+          if distro = detect_name_and_version_from(LinuxDistributions::REGEXP_AND_NAMES)
+            distro
           else
-            nil
+            # Special case for Red Hat
+            if detect_user_agent_by_product(/red/i) && red_hat = detect_user_agent_by_product(/hat/i)
+              "Red Hat#{" #{red_hat.version}" if red_hat.version}"
+            else
+              nil
+            end
           end
         end
       end

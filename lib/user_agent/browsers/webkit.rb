@@ -116,8 +116,8 @@ class UserAgent
           # Map OS name that needs to (mainly Windows)
           if platform == "Android" || !name_and_version
             # Return the OS name *almost* as is (just make the version prettier: e.g. 10_6_6 => 10.6.6)
-            application.comment[2].gsub(/_/, '.')
-            
+            detect { |ua| !ua.comment.nil? }.comment[2].gsub(/_/, '.')
+
           else
             name_and_version
           end
@@ -125,7 +125,7 @@ class UserAgent
       end
 
       def security
-        SECURITY[application.comment[1]]
+        SECURITY[detect { |ua| !ua.comment.nil? }.comment[1]]
       end
 
       def mobile?

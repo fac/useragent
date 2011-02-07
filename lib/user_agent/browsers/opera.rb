@@ -64,7 +64,11 @@ class UserAgent
         elsif detect_user_agent_by_comment(/^macintosh/i)
           application.comment[1]
 
-        elsif platform == "Android" || detect_user_agent_by_comment(/^mac/i)
+        elsif ua = detect_user_agent_by_comment(/android/i)
+          ua.comment.detect { |comm| comm =~ /android\s*(.*)/i }
+          "Android#{" #{$1}" unless !$1 || $1.strip.empty?}"
+
+        elsif detect_user_agent_by_comment(/^mac/i)
           application.comment[0].sub(/mac\s*/i, "")
 
         else

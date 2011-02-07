@@ -73,13 +73,13 @@ class UserAgent
       # General information
       def language
         ua = nil
-        if regexp_and_name = Languages::REGEXP_AND_NAMES.detect { |regexp_and_name| ua = detect_user_agent_by_comment(/^#{regexp_and_name[0]}([-_]|[-_][A-Z]{2})?$/i) }
-          ua.comment.detect { |comm| comm =~ /^#{regexp_and_name[0]}(?:[-_]|[-_]([A-Z]{2}))?$/i }
+        if regexp_and_name = Languages::REGEXP_AND_NAMES.detect { |regexp_and_name| ua = detect_user_agent_by_comment(/^#{regexp_and_name[0]}([-_]|[-_][a-zA-Z]{2})?$/) }
+          ua.comment.detect { |comm| comm =~ /^#{regexp_and_name[0]}(?:[-_]|[-_]([a-zA-Z]{2}))?$/ }
           "#{regexp_and_name[0].source}#{"-#{$1.upcase}" if $1}"
           
         # Special case for 'Mozilla/4.79 [en] (compatible; MSIE 7.0; Windows NT 5.0)'
-        elsif regexp_and_name = Languages::REGEXP_AND_NAMES.detect { |regexp_and_name| ua = detect_user_agent_by_product(/^\[#{regexp_and_name[0]}([-_]|[-_][A-Z]{2})?\]$/i) }
-          ua.comment.detect { |comm| comm =~ /^\[#{regexp_and_name[0]}(?:[-_]|[-_]([A-Z]{2}))?\]$/i }
+        elsif regexp_and_name = Languages::REGEXP_AND_NAMES.detect { |regexp_and_name| ua = detect_user_agent_by_product(/^\[#{regexp_and_name[0]}([-_]|[-_][a-zA-Z]{2})?\]$/) }
+          ua.comment.detect { |comm| comm =~ /^\[#{regexp_and_name[0]}(?:[-_]|[-_]([a-zA-Z]{2}))?\]$/ }
           "#{regexp_and_name[0].source}#{"-#{$1.upcase}" if $1}"
           
         else

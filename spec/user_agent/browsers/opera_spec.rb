@@ -32,10 +32,10 @@ describe UserAgent::Browsers::Opera do
     describe "Windows" do
       it { "Opera/9.23 (Windows NT 5.0; U; en)".should be_browser("Opera").version("9.23").platform("Windows").os("Windows 2000").language("en").security(:strong) }
       it { "Opera/9.23 (Windows NT 5.0; U; de)".should be_browser("Opera").version("9.23").platform("Windows").os("Windows 2000").language("de").security(:strong) }
-      it { "Opera/9.23 (Windows NT 5.1; U; zh-cn)".should be_browser("Opera").version("9.23").platform("Windows").os("Windows XP").language("zh-cn").security(:strong) }
+      it { "Opera/9.23 (Windows NT 5.1; U; zh-cn)".should be_browser("Opera").version("9.23").platform("Windows").os("Windows XP").language("zh-CN").security(:strong) }
       it { "Opera/9.23 (Windows NT 5.1; U; SV1; MEGAUPLOAD 1.0; ru)".should be_browser("Opera").version("9.23").platform("Windows").os("Windows XP").language("ru").security(:strong) }
       it { "Opera/9.23 (Windows NT 5.1; U; pt)".should be_browser("Opera").version("9.23").platform("Windows").os("Windows XP").language("pt").security(:strong) }
-      it { "Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.1; es-es) Opera 9.23".should be_browser("Opera").version("9.23").platform("Windows").os("Windows XP").language("es-es") }
+      it { "Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.1; es-es) Opera 9.23".should be_browser("Opera").version("9.23").platform("Windows").os("Windows XP").language("es-ES") }
       it { "Mozilla/5.0 (Windows NT 5.1; U; de; rv:1.8.0) Gecko/20060728 Firefox/1.5.0 Opera 9.23".should be_browser("Opera").version("9.23").platform("Windows").os("Windows XP").language("de").security(:strong) }
       it { "Opera/9.23 (Windows NT 6.0; U; de)".should be_browser("Opera").version("9.23").platform("Windows").os("Windows Vista").language("de").security(:strong) }
       it { "Opera/9.23 (Windows NT 6.0; U; it)".should be_browser("Opera").version("9.23").platform("Windows").os("Windows Vista").language("it").security(:strong) }
@@ -54,7 +54,7 @@ describe UserAgent::Browsers::Opera do
 
     describe "Linux" do
       it { "Opera/9.23 (X11; Linux x86_64; U; en)".should be_browser("Opera").version("9.23").platform("Linux").os("Linux x86_64").language("en").security(:strong) }
-      it { "Opera/9.23 (X11; Linux i686; U; es-es)".should be_browser("Opera").version("9.23").platform("Linux").os("Linux i686").language("es-es").security(:strong) }
+      it { "Opera/9.23 (X11; Linux i686; U; es-es)".should be_browser("Opera").version("9.23").platform("Linux").os("Linux i686").language("es-ES").security(:strong) }
       it { "Opera/9.23 (X11; Linux i686; U; en)".should be_browser("Opera").version("9.23").platform("Linux").os("Linux i686").language("en").security(:strong) }
       it { "Mozilla/4.0 (compatible; MSIE 6.0; X11; Linux i686; en) Opera 9.23".should be_browser("Opera").version("9.23").platform("Linux").os("Linux i686").language("en") }
       it { "Mozilla/5.0 (X11; Linux i686; U; en; rv:1.8.0) Gecko/20060728 Firefox/1.5.0 Opera 9.23".should be_browser("Opera").version("9.23").platform("Linux").os("Linux i686").language("en").security(:strong) }
@@ -74,6 +74,7 @@ describe UserAgent::Browsers::Opera do
     it { "Opera/9.80 (J2ME/MIDP; Opera Mini/4.2.14613/23.317; U; en) Presto/2.5.25 Version/10.54".should be_browser("Opera Mini").version("4.2.14613").language("en").security(:strong).mobile(true) }
     it { "SAMSUNG-SGH-A797/A797UCIIB; Mozilla/5.0 (Profile/MIDP-2.0 Configuration/CLDC-1.1; Opera Mini/att/4.2.15354; U; en-US) Opera 9.50".should be_browser("Opera Mini").version("att").language("en-US").security(:strong).mobile(true) }
     it { "Opera/9.80 (J2ME/MIDP; Opera Mini/5.0 (iPod; U; CPU iPhone OS 4_1 like Mac OS X; en-gb) AppleWebKit/20.2497; U; en) Presto/2.5.25".should be_browser("Opera Mini").version("5.0").platform("iPod").os("iOS 4.1").language("en").security(:strong).mobile(true) }
+    it { "Opera/9.80 (J2ME/MIDP; Opera Mini/5.1.21214 (iPhone 4.0 Simulator; iPod Touch; U; CPU iPhone OS 4_0 like Mac OS X 10_6_4; en-US) Apple iPhone OS v4.0 CoreMedia v2.0.0.7A400; GTB5.0.20090324; rv:1.9.3a".should be_browser("Opera Mini").version("5.1.21214").platform("iPhone Simulator").os("iOS 4.0").security(:strong).mobile(true) }
   end
 
   describe "Opera Mobile" do

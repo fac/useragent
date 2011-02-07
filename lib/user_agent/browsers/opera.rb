@@ -72,16 +72,6 @@ class UserAgent
         end
       end
 
-      def language
-        # Handle language that is not the last part of comment
-        # e.g.: Mozilla/5.0 (Windows NT 5.1; U; de; rv:1.8.0) Gecko/20060728 Firefox/1.5.0 Opera 9.23
-        if application.comment
-          application.comment.last =~ /^rv:/ ? application.comment[application.comment.size-2] : application.comment.last
-        else
-          super
-        end
-      end
-
       def security
         case platform
         when "Windows", "Nintendo Wii"

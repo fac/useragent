@@ -19,16 +19,16 @@ class UserAgent
         join(" ")
       end
       alias :to_s :to_str
-      
+
       # By default, all parsed UserAgent strings represent browsers
       def type
         :browser
       end
-      
+
       def gecko?
         false
       end
-      
+
       def webkit?
         false
       end
@@ -73,15 +73,15 @@ class UserAgent
       # General information
       def language
         ua = nil
-        if regexp_and_name = Languages::REGEXP_AND_NAMES.detect { |regexp_and_name| ua = detect_user_agent_by_comment(/^#{regexp_and_name[0]}([-_]|[-_][a-zA-Z]{2})?$/) }
-          ua.comment.detect { |comm| comm =~ /^#{regexp_and_name[0]}(?:[-_]|[-_]([a-zA-Z]{2}))?$/ }
-          "#{regexp_and_name[0].source}#{"-#{$1.upcase}" if $1}"
-          
+        if regexp_and_name = Languages::REGEXP_AND_NAMES.detect { |regexp_and_name| ua = detect_user_agent_by_comment(/^#{regexp_and_name[0]}(([-_][a-zA-Z]{2})|[-_])?$/) }
+          ua.comment.detect { |comm| comm =~ /^#{regexp_and_name[0]}(?:[-_]([a-zA-Z]{2})|[-_])?$/ }
+        "#{regexp_and_name[0].source}#{"-#{$1.upcase}" if $1}"
+
         # Special case for 'Mozilla/4.79 [en] (compatible; MSIE 7.0; Windows NT 5.0)'
-        elsif regexp_and_name = Languages::REGEXP_AND_NAMES.detect { |regexp_and_name| ua = detect_user_agent_by_product(/^\[#{regexp_and_name[0]}([-_]|[-_][a-zA-Z]{2})?\]$/) }
-          ua.comment.detect { |comm| comm =~ /^\[#{regexp_and_name[0]}(?:[-_]|[-_]([a-zA-Z]{2}))?\]$/ }
+        elsif regexp_and_name = Languages::REGEXP_AND_NAMES.detect { |regexp_and_name| ua = detect_user_agent_by_product(/^\[#{regexp_and_name[0]}(([-_][a-zA-Z]{2})|[-_])?\]$/) }
+          ua.comment.detect { |comm| comm =~ /^\[#{regexp_and_name[0]}(?:[-_]([a-zA-Z]{2})|[-_])?\]$/ }
           "#{regexp_and_name[0].source}#{"-#{$1.upcase}" if $1}"
-          
+
         else
           nil
         end
@@ -183,7 +183,7 @@ class UserAgent
       # Ensure given text is a valid language (check against ISO-639-2 official languages list)
       # More info in UserAgent::Languages
       def ensure_existing_language(text)
-        Languages::REGEXP_AND_NAMES.detect { |regexp_and_name| text =~ regexp_and_name[0] } ? text : nil
+        Languages::REGEXP_AND_NAMES.detect { |regexp_and_name| text =~ /^#{regexp_and_name[0]}/ } ? text : nil
       end
 
     end

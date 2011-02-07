@@ -36,28 +36,28 @@ RSpec::Matchers.define :be_browser do |browser|
     if false # debug
       puts @ua.inspect
       puts "ACTUAL/EXPECTED"
-      puts "browser: #{@ua.browser}/#{browser}"                                   unless @ua.browser == browser
-      puts "type: #{@ua.type}/#{@type}"                                           unless @ua.type == @type
-      puts "version: #{@ua.version}/#{@version}"                                  unless @ua.version == @version
-      puts "platform: #{@ua.platform}/#{@platform}"                               unless @ua.platform == @platform
-      puts "os: #{@ua.os}/#{@os}"                                                 unless @ua.os == @os
-      puts "linux_distribution: #{@ua.linux_distribution}/#{@linux_distribution}" unless @ua.linux_distribution == @linux_distribution
-      puts "language: #{@ua.language}/#{@language}"                               unless @ua.language == @language
-      puts "mobile: #{@ua.mobile?}/#{@mobile}"                                    unless @ua.mobile? == @mobile
-      puts "security: #{@ua.security}/#{@security}"                               unless @ua.security == @security
+      puts "Browser: #{@ua.browser}/#{browser}"                                   unless @ua.browser == browser
+      puts "Type: #{@ua.type}/#{@type}"                                           unless @ua.type == @type
+      puts "Version: #{@ua.version}/#{@version}"                                  unless @ua.version == @version
+      puts "Platform: #{@ua.platform}/#{@platform}"                               unless @ua.platform == @platform
+      puts "OS: #{@ua.os}/#{@os}"                                                 unless @ua.os == @os
+      puts "Linux Distribution: #{@ua.linux_distribution}/#{@linux_distribution}" unless @ua.linux_distribution == @linux_distribution
+      puts "Language: #{@ua.language}/#{@language}"                               unless @ua.language == @language
+      puts "Mobile: #{@ua.mobile?}/#{@mobile}"                                    unless @ua.mobile? == @mobile
+      puts "Security: #{@ua.security}/#{@security}"                               unless @ua.security == @security
 
-      puts "compatible: #{@ua.compatible?}/#{@compatible}" unless !@ua.respond_to?(:compatible?) || (@ua.compatible? == @compatible)
+      puts "Compatible: #{@ua.compatible?}/#{@compatible}" unless !@ua.respond_to?(:compatible?) || (@ua.compatible? == @compatible)
       if @ua.respond_to?(:chromeframe)
-        puts "chromeframe: #{@ua.chromeframe}/#{@chromeframe}"                         unless !@ua.chromeframe.nil? == @chromeframe
-        puts "chromeframe_version: #{@ua.chromeframe_version}/#{@chromeframe_version}" unless (@ua.chromeframe_version == @chromeframe_version)
+        puts "Chromeframe: #{@ua.chromeframe}/#{@chromeframe}"                         unless !@ua.chromeframe.nil? == @chromeframe
+        puts "Chromeframe Version: #{@ua.chromeframe_version}/#{@chromeframe_version}" unless (@ua.chromeframe_version == @chromeframe_version)
       end
 
       if @ua.webkit?
-        puts "webkit_version: #{@ua.webkit.version}/#{@webkit_version}" unless !@ua.webkit? || (@ua.webkit.version == @webkit_version)
-        puts "build: #{@ua.build}/#{@build}"                            unless !@ua.webkit? || (@ua.build == @build)
+        puts "Webkit Version: #{@ua.webkit.version}/#{@webkit_version}" unless !@ua.webkit? || (@ua.webkit.version == @webkit_version)
+        puts "Build: #{@ua.build}/#{@build}"                            unless !@ua.webkit? || (@ua.build == @build)
       end
 
-      puts "gecko_version: #{@ua.gecko_version}/#{@gecko_version}" unless !@ua.gecko? || (@ua.gecko_version == @gecko_version)
+      puts "Gecko Version: #{@ua.gecko_version}/#{@gecko_version}" unless !@ua.gecko? || (@ua.gecko_version == @gecko_version)
     end
 
     ie_conditions     = !@ua.respond_to?(:compatible?) || (@ua.compatible? == @compatible) &&
@@ -78,7 +78,7 @@ RSpec::Matchers.define :be_browser do |browser|
     message += "\nPlatform: '#{@ua.platform}', '#{@platform}' was expected"                               unless @ua.platform == @platform
     message += "\nOS: '#{@ua.os}', '#{@os}' was expected"                                                 unless @ua.os == @os
     message += "\nLinux Distribution: '#{@ua.linux_distribution}', '#{@linux_distribution}' was expected" unless @ua.linux_distribution == @linux_distribution
-    message += "\nLocalization: '#{@ua.language}', '#{@language}' was expected"                           unless @ua.language == @language
+    message += "\nLanguage: '#{@ua.language}', '#{@language}' was expected"                           unless @ua.language == @language
     message += "\nSecurity: '#{@ua.security}', '#{@security}' was expected"                               unless @ua.security == @security
     message += "\nMobile: '#{@ua.mobile?}', '#{@mobile}' was expected"                                    unless @ua.mobile? == @mobile
 

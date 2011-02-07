@@ -105,7 +105,7 @@ describe UserAgent::Browsers::Gecko do
       it { "Mozilla/5.0 (Windows; U; Windows NT 6.1; lt; rv:1.9.2) Gecko/20100115 Firefox/3.6".should be_browser("Firefox").version("3.6").gecko_version("20100115").platform("Windows").os("Windows 7").language("lt").security(:strong) }
       it { "Mozilla/5.0 (Windows NT 5.1; rv:2.0b9pre) Gecko/20110105 Firefox/4.0b9pre".should be_browser("Firefox").version("4.0b9pre").gecko_version("20110105").platform("Windows").os("Windows XP").security(:strong) }
       it { "Mozilla/5.0 (Windows NT 6.1; Win64; x64; rv:2.0b9pre) Gecko/20101228 Firefox/4.0b9pre".should be_browser("Firefox").version("4.0b9pre").gecko_version("20101228").platform("Windows").os("Windows 7").security(:strong) }
-      it { "Mozilla/5.0 (Windows; U; Windows NT 5.1; en-US; rv:1.9.2.3) Gecko/20100401 Mozilla/5.0 (X11; U; Linux i686; it-IT; rv:1.9.0.2) Gecko/2008092313 Ubuntu/9.25 (jaunty) Firefox/3.8".should be_browser("Firefox").version("3.8").gecko_version("20100401").platform("Windows").os("Windows XP").linux_distribution("Ubuntu 9.25").language("en-US").security(:strong) }
+      it { "Mozilla/5.0 (Windows; U; Windows NT 5.1; en-US; rv:1.9.2.3) Gecko/20100401 Mozilla/5.0 (X11; U; Linux i686; it-IT; rv:1.9.0.2) Gecko/2008092313 Ubuntu/9.25 (jaunty) Firefox/3.8".should be_browser("Firefox").version("3.8").gecko_version("20100401").platform("Windows").os("Windows XP").language("en-US").security(:strong) }
     end
 
     describe "Macintosh" do
@@ -213,7 +213,7 @@ describe UserAgent::Browsers::Gecko do
       it { "Mozilla/5.0 (X11; U; Linux i686; en; rv:1.9) Gecko".should be_browser("Mozilla").version("1.9").platform("Linux").os("Linux i686").language("en").security(:strong) }
       it { "Mozilla/5.0 (X11; U; Linux x86_64; en-US; rv:1.9.0.1) Gecko".should be_browser("Mozilla").version("1.9.0.1").platform("Linux").os("Linux x86_64").language("en-US").security(:strong) }
       # We loose the processor type here :( because of the "(Linux Mint)" comment
-      it { "Mozilla/5.0 (X11; U; Linux i686; en-US; rv:1.9.0.1) Gecko/2008072820 Ubuntu/8.04 (hardy) (Linux Mint)".should be_browser("Mozilla").version("1.9.0.1").gecko_version("2008072820").platform("Linux").os("Linux").linux_distribution("Ubuntu 8.04").language("en-US").security(:strong) }
+      it { "Mozilla/5.0 (X11; U; Linux i686; en-US; rv:1.9.0.1) Gecko/2008072820 Ubuntu/8.04 (hardy) (Linux Mint)".should be_browser("Mozilla").version("1.9.0.1").gecko_version("2008072820").platform("Linux").os("Linux i686").linux_distribution("Ubuntu 8.04").language("en-US").security(:strong) }
     end
 
     describe "FreeBSD" do

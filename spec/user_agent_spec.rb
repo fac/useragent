@@ -75,6 +75,10 @@ describe UserAgent do
       UserAgent.parse(nil).should be_empty
     end
 
+    it "should 'repair' strings with un-closed pairs parenthesis" do
+      UserAgent.parse("Mozilla/5.0 (Macintosh; U; Intel Mac OS X 10_5_3; en-us").to_s.should == UserAgent.parse("Mozilla/5.0 (Macintosh; U; Intel Mac OS X 10_5_3; en-us)").to_s
+    end
+
     it "should parse a single product" do
       useragent = UserAgent.new("Mozilla")
       UserAgent.parse("Mozilla").application.should == useragent

@@ -513,6 +513,7 @@ describe UserAgent::Browsers::InternetExplorer do
       it { "Mozilla/4.0 (compatible; MSIE 7.0b; Windows NT 6.0)".should be_browser("IE").version("7.0b").platform("Windows").os("Windows Vista").compatible(true) }
 
       it { "Mozilla/4.0 (compatible; MSIE 8.0; Windows NT 6.0)".should be_browser("IE").version("8.0").platform("Windows").os("Windows Vista").compatible(true) }
+      it { "Mozilla/4.0 (MSIE 8.0; Windows NT 7.1; Avatar26; Intel Mac OS X 10.5; iPad; Android 1.0; X11; Linux i686; Ubuntu 8.04; Macintosh CPU iPhone OS 3_2 like Mac OS X; Symbian OS 9; rv:1.9.1.8; GTB6; .NET".should be_browser("IE").version("8.0").platform("Windows").os("Windows NT 7.1") }
     end
 
 
@@ -539,6 +540,9 @@ describe UserAgent::Browsers::InternetExplorer do
   describe "Internet Explorer mobile" do
     it { "Mozilla/4.0 (compatible; MSIE 7.0; Windows Phone OS 7.0; Trident/3.1; IEMobile/7.0; SAMSUNG; SGH-i917)".should be_browser("IE").version("7.0").platform("Windows").os("Windows Phone OS 7.0").compatible(true).mobile(true) }
     it { "HTC_Touch_3G Mozilla/4.0 (compatible; MSIE 6.0; Windows CE; IEMobile 7.11)".should be_browser("IE").version("6.0").platform("Windows").os("Windows CE").compatible(true).mobile(true) }
+    it { "Mozilla/4.0 (compatible; MSIE 7.0; Windows Phone OS 7.0; Trident/3.1; IEMobile/7.0) ASUS;GALAXY6".should be_browser("IE").version("7.0").platform("Windows").os("Windows Phone OS 7.0").compatible(true).mobile(true) }
+    it { "Mozilla/4.0 (compatible; MSIE 7.0; Windows Phone OS 7.0; Trident/3.1; IEMobile/7.0) Microsoft Corporation;CEPC".should be_browser("IE").version("7.0").platform("Windows").os("Windows Phone OS 7.0").compatible(true).mobile(true) }
+    it { "Mozilla/4.0 (compatible; MSIE 7.0; Windows Phone OS 7.0; Trident/3.1; IEMobile/7.0; LG; LG-E900)".should be_browser("IE").version("7.0").platform("Windows").os("Windows Phone OS 7.0").compatible(true).mobile(true) }
   end
 
 end

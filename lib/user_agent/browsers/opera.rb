@@ -31,8 +31,8 @@ class UserAgent
 
       def version
         if browser == "Opera Mini" && ua = detect_user_agent_by_comment(/Opera Mini/i)
-            ua.comment.detect { |comm| comm =~ /Opera Mini/i }.split('/')[1]
-          
+            ua.comment.detect { |comm| comm =~ /Opera Mini/i }.split('/')[1].split('(')[0].strip
+
         elsif product = detect_user_agent_by_product("Version")
           product.version
 
@@ -52,6 +52,14 @@ class UserAgent
 
         elsif platform == "Windows"
           detect_name_and_version_from(OperatingSystems::REGEXP_AND_NAMES)
+
+        # Handle iOS
+        # Examples:
+        #   CPU like Mac OS X => 'iOS'
+        #   CPU iPhone OS 3_1_3 like Mac OS X => 'iOS 3.1.3'
+        elsif ua = detect_user_agent_by_comment(/CPU.*like Mac OS X/i)
+          ua.comment.detect { |comm| comm =~ /CPU (?:iPhone )?OS ([\d_]+) like Mac OS X/i }
+          "iOS#{" #{$1.gsub(/_/, '.')}" unless !$1 || $1.strip.empty?}"
 
         elsif detect_user_agent_by_comment(/^macintosh/i)
           application.comment[1]

@@ -66,13 +66,14 @@ describe UserAgent::Browsers::Opera do
       it { "Opera/9.23 (Nintendo Wii; U; ; 1038-58; Wii Internet Channel/1.0; en)".should be_browser("Opera").version("9.23").type(:console).platform("Nintendo Wii").language("en").security(:strong) }
       it { "Opera/9.30 (Nintendo Wii; U; ; 3642; en)".should be_browser("Opera").version("9.30").type(:console).platform("Nintendo Wii").language("en").security(:strong) }
     end
-    
+
   end
 
   describe "Opera Mini" do
     it { "Opera/9.80 (Series 60; Opera Mini/5.1.22784/22.394; U; en) Presto/2.5.25 Version/10.54".should be_browser("Opera Mini").version("5.1.22784").language("en").security(:strong).mobile(true) }
     it { "Opera/9.80 (J2ME/MIDP; Opera Mini/4.2.14613/23.317; U; en) Presto/2.5.25 Version/10.54".should be_browser("Opera Mini").version("4.2.14613").language("en").security(:strong).mobile(true) }
     it { "SAMSUNG-SGH-A797/A797UCIIB; Mozilla/5.0 (Profile/MIDP-2.0 Configuration/CLDC-1.1; Opera Mini/att/4.2.15354; U; en-US) Opera 9.50".should be_browser("Opera Mini").version("att").language("en-US").security(:strong).mobile(true) }
+    it { "Opera/9.80 (J2ME/MIDP; Opera Mini/5.0 (iPod; U; CPU iPhone OS 4_1 like Mac OS X; en-gb) AppleWebKit/20.2497; U; en) Presto/2.5.25".should be_browser("Opera Mini").version("5.0").platform("iPod").os("iOS 4.1").language("en").security(:strong).mobile(true) }
   end
 
   describe "Opera Mobile" do

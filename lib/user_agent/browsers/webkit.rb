@@ -3,6 +3,7 @@ class UserAgent
     module Webkit
 
       WEBKIT_BROWSERS = %w[
+        AdobeAIR
         Arora
         Android
         BlackBerry

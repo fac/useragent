@@ -47,8 +47,8 @@ class UserAgent
       end
 
       def os
-        if platform == "Linux"
-          application.comment.detect { |c| c =~ /^#{platform}/i }
+        if platform == "Linux" && ua = detect_user_agent_by_comment(/^#{platform}/i)
+           ua.comment.detect { |comm| comm =~ /^#{platform}/i }
 
         elsif platform == "Windows"
           detect_name_and_version_from(OperatingSystems::REGEXP_AND_NAMES)
@@ -61,15 +61,15 @@ class UserAgent
           ua.comment.detect { |comm| comm =~ /CPU (?:iPhone )?OS ([\d_]+) like Mac OS X/i }
           "iOS#{" #{$1.gsub(/_/, '.')}" unless !$1 || $1.strip.empty?}"
 
-        elsif detect_user_agent_by_comment(/^macintosh/i)
-          application.comment[1]
+        elsif ua = detect_user_agent_by_comment(/^macintosh/i)
+          ua.comment[1]
 
         elsif ua = detect_user_agent_by_comment(/android/i)
           ua.comment.detect { |comm| comm =~ /android\s*(.*)/i }
           "Android#{" #{$1}" unless !$1 || $1.strip.empty?}"
 
-        elsif detect_user_agent_by_comment(/^mac/i)
-          application.comment[0].sub(/mac\s*/i, "")
+        elsif ua = detect_user_agent_by_comment(/^mac/i)
+          ua.comment.detect { |comm| comm =~ /^mac/i }.sub(/mac\s*/i, "")
 
         else
           nil
@@ -77,11 +77,17 @@ class UserAgent
       end
 
       def security
-        case platform
-        when "Windows", "Nintendo Wii"
-          SECURITY[application.comment[1]]
-        when "Macintosh", "Linux"
-          SECURITY[application.comment[2]]
+        ua = detect { |ua| !ua.comment.nil? }
+        
+        if ua
+          case platform
+          when "Windows", "Nintendo Wii"
+            SECURITY[ua.comment[1]]
+          when "Macintosh", "Linux"
+            SECURITY[ua.comment[2]]
+          else
+            super
+          end
         else
           super
         end

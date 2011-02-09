@@ -28,6 +28,20 @@ describe UserAgent::Browsers::Opera do
     specify { @opera_9_27.should_not >= @opera_9_28 }
   end
 
+  describe "Unknown os (very short comment)" do
+    it { "Opera/9.23 (Windows NT 5.0;)".should be_browser("Opera").platform("Windows").os("Windows 2000").version("9.23") }
+    it { "Opera/9.23 (Windows NT 5.0; U;)".should be_browser("Opera").platform("Windows").os("Windows 2000").version("9.23").security(:strong) }
+  end
+
+  describe "os not in the first comment" do
+    it { "Opera/9.23 (foo; bar;) (Mac OS X; fr)".should be_browser("Opera").version("9.23").platform("Macintosh").os("OS X").language("fr") }
+    it { "Opera/9.23 (foo; bar;) (Macintosh; Intel Mac OS X; fr)".should be_browser("Opera").version("9.23").platform("Macintosh").os("Intel Mac OS X").language("fr") }
+  end
+
+  describe "Without comment" do
+    it { "Opera/9.23 Linux".should be_browser("Opera").version("9.23").platform("Linux") }
+  end
+
   describe "Opera" do
     describe "Windows" do
       it { "Opera/9.23 (Windows NT 5.0; U; en)".should be_browser("Opera").version("9.23").platform("Windows").os("Windows 2000").language("en").security(:strong) }

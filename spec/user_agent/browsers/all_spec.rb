@@ -48,9 +48,21 @@ describe UserAgent::Browsers::All do
       specify { @ie_7.should     >= @ie_6 }
     end
   end
+  
+  describe "#browser" do
+    specify { UserAgent.parse(nil).browser.should be_nil }
+    specify { UserAgent.parse("").browser.should be_nil }
+  end
+  
+  describe "#version" do
+    specify { UserAgent.parse(nil).version.should be_nil }
+    specify { UserAgent.parse("").version.should be_nil }
+  end
 
   describe "#platform" do
     before(:all) do
+      @nil               = UserAgent.parse(nil)
+      @empty             = UserAgent.parse("")
       @nintendo_wii      = UserAgent.parse("Opera/9.23 (Nintendo Wii; U; ; 1038-58; Wii Internet Channel/1.0; en)")
       @nintendo_ds       = UserAgent.parse("Opera/9.23 (Nintendo DS v4; U; ; 1038-58; en)")
       @web_tv            = UserAgent.parse("WebTV 1.2 Mozilla/3.0 WebTV/1.2 (compatible; MSIE 2.0)")
@@ -77,6 +89,8 @@ describe UserAgent::Browsers::All do
       @x11               = UserAgent.parse("Mozilla/5.0 (X11; U; en-US; rv:1.7.12) Gecko/20051025")
     end
 
+    specify { @nil.platform.should               be_nil }
+    specify { @empty.platform.should             be_nil }
     specify { @nintendo_wii.platform.should      == "Nintendo Wii" }
     specify { @nintendo_ds.platform.should       == "Nintendo DS" }
     specify { @web_tv.platform.should            == "WebTV" }
@@ -105,6 +119,8 @@ describe UserAgent::Browsers::All do
 
   describe "#os" do
     before(:all) do
+      @nil                 = UserAgent.parse(nil)
+      @empty               = UserAgent.parse("")
       @windows_7           = UserAgent.parse("Fake/5.0 (Windows; U; Windows NT 6.1; en-US; rv:1.8.1.14)")
       @windows_vista_1     = UserAgent.parse("Fake/5.0 (Windows; U; Windows NT 6; en-US; rv:1.8.1.14)")
       @windows_vista_2     = UserAgent.parse("Fake/5.0 (Windows; U; Windows NT 6.0; en-US; rv:1.8.1.14)")
@@ -158,6 +174,8 @@ describe UserAgent::Browsers::All do
       @nintendo_dsi        = UserAgent.parse("Fake/5.0 (Nintendo DSi; U; M3 Adapter CF + PassMe2; en-US; rv:1.8.0.6)")
     end
 
+    specify { @nil.os.should be_nil }
+    specify { @empty.os.should be_nil }
     specify { @windows_7.os.should == "Windows 7" }
     specify { [@windows_vista_1, @windows_vista_2].all? { |ua| ua.os.should == "Windows Vista" } }
     specify { @windows_server_2003.os.should == "Windows Server 2003" }
@@ -187,6 +205,8 @@ describe UserAgent::Browsers::All do
   describe "#linux_distribution" do
     context "without a version" do
       before(:all) do
+        @nil      = UserAgent.parse(nil)
+        @empty    = UserAgent.parse("")
         @debian   = UserAgent.parse("Mozilla/5.0 (X11; U; Linux x86_64; de-AT; rv:1.7.8) Gecko/20050513 Debian")
         @kubuntu  = UserAgent.parse("Mozilla/5.001 (X11; U; Linux i686; rv:1.8.1.6; de-ch) Gecko/25250101 (kubuntu)")
         @ubuntu   = UserAgent.parse("Mozilla/5.001 (X11; U; Linux i686; rv:1.8.1.6; de-ch) Gecko/25250101 (ubuntu)")
@@ -197,6 +217,8 @@ describe UserAgent::Browsers::All do
         @red_hat  = UserAgent.parse("Mozilla/5.0 (X11; U; Linux i686; en-US; rv:1.7.8) Gecko/20050512 Red Hat")
       end
 
+      specify { @nil.linux_distribution.should      be_nil }
+      specify { @empty.linux_distribution.should    be_nil }
       specify { @debian.linux_distribution.should   == "Debian" }
       specify { @kubuntu.linux_distribution.should  == "Kubuntu" }
       specify { @ubuntu.linux_distribution.should   == "Ubuntu" }
@@ -234,6 +256,16 @@ describe UserAgent::Browsers::All do
       specify { @mandriva.linux_distribution.should == "Mandriva 2.9.95-25.1" }
       specify { @red_hat.linux_distribution.should  == "Red Hat 1.7.8-1.1.3.1" }
     end
+  end
+
+  describe "#language" do
+    specify { UserAgent.parse(nil).language.should be_nil }
+    specify { UserAgent.parse("").language.should be_nil }
+  end
+
+  describe "#security" do
+    specify { UserAgent.parse(nil).security.should be_nil }
+    specify { UserAgent.parse("").security.should be_nil }
   end
 
 end

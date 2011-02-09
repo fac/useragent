@@ -38,11 +38,11 @@ class UserAgent
       end
 
       def browser
-        application.product
+        application ? application.product : nil
       end
 
       def version
-        application.version
+        application ? application.version : nil
       end
 
       def platform

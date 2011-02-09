@@ -30,6 +30,7 @@ describe UserAgent::Browsers::Other do
 
   describe "Avant Browser" do
     it { "Mozilla/4.0 (compatible; MSIE 8.0; Windows NT 6.1; Trident/4.0; Avant Browser; SLCC2; .NET CLR 2.0.50727; .NET CLR 3.5.30729; .NET CLR 3.0.30729; Media Center PC 6.0)".should be_browser("Avant Browser").platform("Windows").os("Windows 7").compatible(true) }
+    it { "Mozilla/4.0 (compatible; MSIE 8.0; Windows NT 5.1; Trident/4.0; Avant Browser; InfoPath.2; .NET CLR 2.0.50727; OfficeLiveConnector.1.3; OfficeLivePatch.0.0; .NET CLR 3.0.4506.2152; .NET CLR 3.5.30729; BO1IE8_v1;ENUS; AskTbFWV5/5.9.1.14019)".should be_browser("Avant Browser").platform("Windows").os("Windows XP").compatible(true) }
   end
 
   describe "BlackBerry" do

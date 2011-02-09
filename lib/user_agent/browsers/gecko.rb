@@ -40,7 +40,8 @@ class UserAgent
       end
 
       def version
-        if browser == "Mozilla" && application.comment.detect { |comm| comm =~ /^rv:([^\)]+).*/ }
+        if browser == "Mozilla" && ua = detect_user_agent_by_comment(/^rv:([^\)]+).*/)
+          ua.comment.detect { |comm| comm =~ /^rv:([^\)]+).*/ }
           $1
         else
           browser_info = GECKO_BROWSERS.detect { |browser| detect_user_agent_by_product_or_comment(browser.is_a?(Array) ? browser[0] : browser) }

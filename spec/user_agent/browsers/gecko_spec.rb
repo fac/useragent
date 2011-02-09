@@ -32,6 +32,10 @@ describe UserAgent::Browsers::Gecko do
     it { "Mozilla/5.0 (Windows; U; WinNT; en; rv:1.0.2) Gecko/20030311 FooBar/0.5".should be_browser("Mozilla").version("1.0.2").gecko_version("20030311").platform("Windows").os("Windows NT").language("en").security(:strong) }
   end
 
+  describe "no comment" do
+    it { "Mozilla/5.0 Gecko/20030311 FooBar/0.5".should be_browser("Mozilla").version("5.0").gecko_version("20030311").security(:strong) }
+  end
+
   describe "Beonex" do
     it { "Mozilla/5.0 (Windows; U; WinNT; en; rv:1.0.2) Gecko/20030311 Beonex/0.8.2-stable".should be_browser("Beonex").version("0.8.2-stable").gecko_version("20030311").platform("Windows").os("Windows NT").language("en").security(:strong) }
   end

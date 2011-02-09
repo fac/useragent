@@ -74,6 +74,10 @@ describe UserAgent::Browsers::Webkit do
       end
     end
 
+    describe "Epiphany" do
+      it { "Mozilla/5.0 (X11; U; Linux i686; en-ca) AppleWebKit/531.2+ (KHTML, like Gecko) Safari/531.2+ Epiphany/2.30.2".should be_browser("Epiphany").version("2.30.2").webkit_version("531.2+").build("531.2+").platform("Linux").os("Linux i686").language("en-CA").security(:strong) }
+    end
+
     describe "Fluid" do
       it { "Mozilla/5.0 (Macintosh; U; Intel Mac OS X 10_6_1; nl-nl) AppleWebKit/532.3+ (KHTML, like Gecko) Fluid/0.9.6 Safari/532.3+".should be_browser("Fluid").version("0.9.6").webkit_version("532.3+").build("532.3+").platform("Macintosh").os("Intel Mac OS X 10.6.1").language("nl-NL").security(:strong) }
 

@@ -7,6 +7,7 @@ class UserAgent
         Android
         BlackBerry
         Chrome
+        Epiphany
         Fluid
         NetNewsWire
         OmniWeb

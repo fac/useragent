@@ -26,6 +26,7 @@ class UserAgent
       [%r{Linux\s*(.*)}i,             "Linux"],
       [%r{AmigaOS}i,                  "AmigaOS"],
       [%r{BlackBerry}i,               "BlackBerryOS"],
+      [%r{SymbianOS[-/\s]?(.*)}i,     "SymbianOS"],
       [%r{Nintendo\s+DS[-/\s]?(.*)}i, "Nintendo DS"]
     ]
 

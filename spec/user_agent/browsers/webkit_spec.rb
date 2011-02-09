@@ -30,6 +30,10 @@ describe UserAgent::Browsers::Webkit do
 
   describe UserAgent::Browsers::Webkit do
 
+    describe "Unknown os (very short comment)" do
+      it { "Mozilla/5.0 (foo; U;) AppleWebKit/527+ (KHTML, like Gecko, Safari/419.3)  Arora/0.8.0".should be_browser("Arora").version("0.8.0").webkit_version("527+").build("527+").security(:strong) }
+    end
+
     describe "Arora" do
       it { "Mozilla/5.0 (X11; U; Linux; de-DE) AppleWebKit/527+ (KHTML, like Gecko, Safari/419.3)  Arora/0.8.0".should be_browser("Arora").version("0.8.0").webkit_version("527+").build("527+").platform("Linux").os("Linux").language("de-DE").security(:strong) }
     end

@@ -44,7 +44,7 @@ class UserAgent
           $1
         else
           browser_info = GECKO_BROWSERS.detect { |browser| detect_user_agent_by_product_or_comment(browser.is_a?(Array) ? browser[0] : browser) }
-          if v = send(browser_info.is_a?(Array) ? browser_info[0] : browser_info).version
+          if browser_info && v = send(browser_info.is_a?(Array) ? browser_info[0] : browser_info).version
             v.partition('/')[0] # Handle strange version specification like 'Sunrise/4.0.1/like'
           else
             super
@@ -60,8 +60,8 @@ class UserAgent
         # Handle this special case where Gecko is stored as a comment and not as a product:
         # - Mozilla/4.0 (compatible; Mozilla/5.0 (Windows; U; Windows NT 5.1; en-US; rv:1.7.13) Gecko/20060414; Windows NT 5.1)
         elsif ua = detect_user_agent_by_comment(/gecko/i)
-          version = ua.comment.detect { |c| c =~ %r{gecko/}i }
-          version.partition(%r{gecko/}i).last unless version.nil?
+          ua.comment.detect { |c| c =~ %r{gecko/(.*)}i }
+          $1
         else
           nil
         end

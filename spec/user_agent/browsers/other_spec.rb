@@ -55,6 +55,10 @@ describe UserAgent::Browsers::Other do
     it { "Lynx/2.8.8dev.3 libwww-FM/2.14 SSL-MM/1.4.1".should be_browser("Lynx").version("2.8.8dev.3") }
   end
 
+  describe "NetFront" do
+    it { "LGE-VM510 NetFront/3.5.1 (GUI) MMP/2.0".should be_browser("NetFront").version("3.5.1") }
+  end
+
   describe "NetPositive" do
     it { "Mozilla/3.0 (compatible; NetPositive/2.2)".should be_browser("NetPositive").version("2.2").compatible(true) }
     it { "Mozilla/3.0 (compatible; NetPositive/2.2.1; BeOS)".should be_browser("NetPositive").version("2.2.1").platform("BeOS").os("BeOS").compatible(true) }

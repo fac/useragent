@@ -13,6 +13,7 @@ class UserAgent
         [%r{Kindle[-/\s]?(.*)}i,                 "Kindle"],
         [%r{Konqueror[-/\s]?(.*)}i,              "Konqueror"],
         [%r{Lynx[-/\s]?(.*)}i,                   "Lynx"],
+        [%r{NetFront[-/\s]?(.*)}i,               "NetFront"],
         [%r{NetPositive[-/\s]?(.*)}i,            "NetPositive"],
         [%r{PLAYSTATION 3}i,                     "Playstation 3"],
         [%r{PSP|PLAYSTATION Portable}i,          "Playstation Portable"]

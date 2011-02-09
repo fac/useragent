@@ -9,6 +9,7 @@ class UserAgent
         Chrome
         Epiphany
         Fluid
+        Midori
         NetNewsWire
         OmniWeb
         Shiira

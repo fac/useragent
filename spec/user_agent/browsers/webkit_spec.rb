@@ -86,6 +86,10 @@ describe UserAgent::Browsers::Webkit do
       it { "Mozilla/5.0 (Windows; U; Windows NT 5.1; en-US) AppleWebKit/532.0 (KHTML, like Gecko) Iron/3.0.197.0 Safari/532.0".should be_browser("Iron").version("3.0.197.0").webkit_version("532.0").build("532.0").platform("Windows").os("Windows XP").language("en-US").security(:strong) }
     end
 
+    describe "Maxthon" do
+      it { "Mozilla/5.0 (Windows; U; Windows NT 6.1; en-US) AppleWebKit/533.9 (KHTML, like Gecko) Maxthon/3.0 Safari/533.9".should be_browser("Maxthon").version("3.0").webkit_version("533.9").build("533.9").platform("Windows").os("Windows 7").language("en-US").security(:strong) }
+    end
+
     describe "Midori" do
       it { "Mozilla/5.0 (X11; U; Linux; it-it) AppleWebKit/531+ (KHTML, like Gecko) Safari/531.2+ Midori/0.3".should be_browser("Midori").version("0.3").webkit_version("531+").build("531+").platform("Linux").os("Linux").language("it-IT").security(:strong) }
     end

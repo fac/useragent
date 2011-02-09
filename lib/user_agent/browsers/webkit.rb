@@ -10,6 +10,7 @@ class UserAgent
         Epiphany
         Fluid
         Iron
+        Maxthon
         Midori
         NetNewsWire
         OmniWeb

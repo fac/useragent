@@ -11,6 +11,7 @@ class UserAgent
         NetNewsWire
         OmniWeb
         Shiira
+        Symbian
         webOS
       ]
 
@@ -85,6 +86,10 @@ class UserAgent
         elsif browser == "Safari"
           BUILD_VERSIONS[build]
 
+        # Don't detect Symbian version for the moment as we don't really know what to detect for this
+        elsif browser == "Symbian"
+          nil
+
         # Try to automatically detect the version of all other browsers
         elsif v = send(browser).version
           v.gsub(/^v/, '') # Handle 'OmniWeb/v563.15'
@@ -96,7 +101,7 @@ class UserAgent
       end
 
       def build
-        detect_user_agent_by_product("AppleWebKit").version
+       webkit ? webkit.version : nil
       end
 
       def os
@@ -134,7 +139,7 @@ class UserAgent
       end
 
       def mobile?
-        browser == "webOS" || !detect_user_agent_by_product("Mobile").nil?
+        %w[webOS Symbian].include?(browser) || !detect_user_agent_by_product("Mobile").nil?
       end
 
     end

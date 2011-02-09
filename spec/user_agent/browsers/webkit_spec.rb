@@ -99,6 +99,11 @@ describe UserAgent::Browsers::Webkit do
       it { "Mozilla/5.0 (webOS/1.4.0; U; en-US) AppleWebKit/532.2 (KHTML, like Gecko) Version/1.0 Safari/532.2 Pixi/1.1".should be_browser("webOS").version("1.0").webkit_version("532.2").build("532.2").platform("webOS").os("Palm Pixi 1.1").language("en-US").security(:strong).mobile(true) }
     end
 
+    describe "Symbian" do
+      it { "Mozilla/5.0 (SymbianOS/9.3; U; Series60/3.2 Nokia6790s-1c/20.007; Profile/MIDP-2.1 Configuration/CLDC-1.1 ) AppleWebKit/413 (KHTML, like Gecko) Safari/413".should be_browser("Symbian").webkit_version("413").build("413").platform("Nokia").os("SymbianOS 9.3").security(:strong).mobile(true) }
+      it { "Mozilla/5.0 (SymbianOS/9.4; Series60/5.0 NokiaN97-1/20.0.027; Profile/MIDP-2.1 Configuration/CLDC-1.1) AppleWebKit/525 (KHTML, like Gecko) BrowserNG/7.1.18124".should be_browser("Symbian").webkit_version("525").build("525").platform("Nokia").os("SymbianOS 9.4").mobile(true) }
+    end
+
     describe "Destkop Safari" do
       describe "Windows" do
         it { "Mozilla/5.0 (Windows; U; Windows NT 5.1; en) AppleWebKit/525.18 (KHTML, like Gecko) Version/3.1.1 Safari/525.18".should be_browser("Safari").version("3.1.1").webkit_version("525.18").build("525.18").platform("Windows").os("Windows XP").language("en").security(:strong) }
@@ -134,6 +139,7 @@ describe UserAgent::Browsers::Webkit do
         it { "Mozilla/5.0 (Macintosh; U; PPC Mac OS X; en) AppleWebKit/418.9.1 (KHTML, like Gecko) Safari/412.2.2".should be_browser("Safari").version("2.0.4").webkit_version("418.9.1").build("418.9.1").platform("Macintosh").os("PPC Mac OS X").language("en").security(:strong) }
         it { "Mozilla/5.0 (Macintosh; U; Intel Mac OS X; en) AppleWebKit/419 (KHTML, like Gecko) Safari/419.3".should be_browser("Safari").version("2.0.4").webkit_version("419").build("419").platform("Macintosh").os("Intel Mac OS X").language("en").security(:strong) }
         it { "Mozilla/5.0 (Macintosh; U; Intel Mac OS X; en) AppleWebKit/425.13 (KHTML, like Gecko) Safari/419.3".should be_browser("Safari").version("2.2").webkit_version("425.13").build("425.13").platform("Macintosh").os("Intel Mac OS X").language("en").security(:strong) }
+        it { "Mozilla/5.0 (Macintosh; U; Intel Mac OS X 10_6_6; sv-se) AppleWebKit/533.19.4 (KHTML, like Gecko) WebClip/6530.10 Safari/6533.19.4".should be_browser("Safari").webkit_version("533.19.4").build("533.19.4").platform("Macintosh").os("Intel Mac OS X 10.6.6").language("sv-SE").security(:strong) }
       end
 
       describe "Macintosh, with proper version" do

@@ -37,12 +37,16 @@ class UserAgent
     unless string.nil?
       parenthesis_to_repair = string.count('(') - string.count(')')
       string += ')' * parenthesis_to_repair if parenthesis_to_repair > 0
-      while !string.nil? && !string.empty? && m = string.to_s.match(MATCHER)
+
+      while !string.empty? && m = string.to_s.match(MATCHER)
+        # break if nothing matched (avoid endless loops, for example when a user agent string has more that one level of parenthesis_to_repair inside the comment)
+        break if m[0].empty?
+
         agents << new(m[1], m[3], m[6])
-        string = string.sub(m[0], '').strip
+        string = string.sub(m[0], '')
       end
-      Browsers.extend(agents)
     end
+    Browsers.extend(agents)
     agents
   end
 

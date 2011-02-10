@@ -13,10 +13,10 @@ class UserAgent
   #   http://www.texsoft.it/index.php?m=sw.php.useragent
   #
   # User Agent strings parsing examples:
-  #   http://useragentstring.com/
+  #   http://useragentstring.com
   #   http://www.zytrax.com/tech/web/browser_ids.htm
   #   http://www.useragents.org/database.asp
-  #   http://useragent.xtractpro.com/
+  #   http://useragent.xtractpro.com
   #   http://www.botsvsbrowsers.com
   #
   # This list could be used for future improvements on mobile devices detection:

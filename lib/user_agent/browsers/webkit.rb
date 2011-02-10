@@ -10,6 +10,7 @@ class UserAgent
         Chrome
         Epiphany
         Fluid
+        Gruml
         Iron
         Maxthon
         Midori
@@ -17,6 +18,7 @@ class UserAgent
         OmniWeb
         Shiira
         Symbian
+        Vienna
         webOS
       ]
 

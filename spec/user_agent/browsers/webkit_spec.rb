@@ -91,6 +91,10 @@ describe UserAgent::Browsers::Webkit do
       it { "Mozilla/5.0 (Macintosh; U; Intel Mac OS X 10_6_1; nl-nl) AppleWebKit/532.3+ (KHTML, like Gecko) Fluid/0.9.6 Safari/532.3+".should be_browser("Fluid").version("0.9.6").webkit_version("532.3+").build("532.3+").platform("Macintosh").os("Intel Mac OS X 10.6.1").language("nl-NL").security(:strong) }
     end
 
+    describe "Gruml" do
+      it { "Mozilla/5.0 (Macintosh; U; Intel Mac OS X 10_6_4; de-de) AppleWebKit/533.17.8 (KHTML, like Gecko) Gruml/0.9.22".should be_browser("Gruml").version("0.9.22").webkit_version("533.17.8").build("533.17.8").platform("Macintosh").os("Intel Mac OS X 10.6.4").language("de-DE").security(:strong) }
+    end
+
     describe "Iron" do
       it { "Mozilla/5.0 (Windows; U; Windows NT 5.1; en-US) AppleWebKit/532.0 (KHTML, like Gecko) Iron/3.0.197.0 Safari/532.0".should be_browser("Iron").version("3.0.197.0").webkit_version("532.0").build("532.0").platform("Windows").os("Windows XP").language("en-US").security(:strong) }
     end
@@ -118,6 +122,9 @@ describe UserAgent::Browsers::Webkit do
       it { "Mozilla/5.0 (Macintosh; U; PPC Mac OS X; ja-jp) AppleWebKit/419 (KHTML, like Gecko) Shiira/1.2.3 Safari/125".should be_browser("Shiira").version("1.2.3").webkit_version("419").build("419").platform("Macintosh").os("PPC Mac OS X").language("ja-JP").security(:strong) }
     end
 
+    describe "Vienna" do
+      it { "Mozilla/5.0 (Macintosh; U; Intel Mac OS X 10_6_4; en-us) AppleWebKit/533.17.8 (KHTML, like Gecko) Vienna/2.5.0.2501".should be_browser("Vienna").version("2.5.0.2501").webkit_version("533.17.8").build("533.17.8").platform("Macintosh").os("Intel Mac OS X 10.6.4").language("en-US").security(:strong) }
+    end
     describe "webOS" do
       it { "Mozilla/5.0 (webOS/1.4.0; U; en-US) AppleWebKit/532.2 (KHTML, like Gecko) Version/1.0 Safari/532.2 Pre/1.1".should be_browser("webOS").version("1.0").webkit_version("532.2").build("532.2").platform("webOS").os("Palm Pre 1.1").language("en-US").security(:strong).mobile(true) }
       it { "Mozilla/5.0 (webOS/1.4.0; U; en-US) AppleWebKit/532.2 (KHTML, like Gecko) Version/1.0 Safari/532.2 Pixi/1.1".should be_browser("webOS").version("1.0").webkit_version("532.2").build("532.2").platform("webOS").os("Palm Pixi 1.1").language("en-US").security(:strong).mobile(true) }

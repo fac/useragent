@@ -90,6 +90,7 @@ describe UserAgent::Browsers::Opera do
     it { "Opera/9.80 (J2ME/MIDP; Opera Mini/5.0 (iPod; U; CPU iPhone OS 4_1 like Mac OS X; en-gb) AppleWebKit/20.2497; U; en) Presto/2.5.25".should be_browser("Opera Mini").version("5.0").platform("iPod").os("iOS 4.1").language("en").security(:strong).mobile(true) }
     it { "Opera/9.80 (J2ME/MIDP; Opera Mini/5.1.21214 (iPhone 4.0 Simulator; iPod Touch; U; CPU iPhone OS 4_0 like Mac OS X 10_6_4; en-US) Apple iPhone OS v4.0 CoreMedia v2.0.0.7A400; GTB5.0.20090324; rv:1.9.3a".should be_browser("Opera Mini").version("5.1.21214").platform("iPhone Simulator").os("iOS 4.0").security(:strong).mobile(true) }
     it { "Opera/9.80 (J2ME/MIDP; Opera Mini/1.1.0 (Linux; U; Android 2.1-update1; Nexus One Build/20.2485; U; en) Presto/2.5.25".should be_browser("Opera Mini").version("1.1.0").platform("Android").os("Android 2.1-update1").security(:strong).mobile(true) }
+    it { "Opera/9.80 (J2ME/MIDP; Opera Mini (Linux; U; Android 2.1-update1; Nexus One Build/20.2485; U; en) Presto/2.5.25".should be_browser("Opera Mini").platform("Android").os("Android 2.1-update1").security(:strong).mobile(true) }
   end
 
   describe "Opera Mobile" do

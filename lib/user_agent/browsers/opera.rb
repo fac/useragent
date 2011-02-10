@@ -31,10 +31,15 @@ class UserAgent
 
       def version
         if browser == "Opera Mini" && ua = detect_user_agent_by_comment(/Opera Mini/i)
-            ua.comment.detect { |comm| comm =~ /Opera Mini/i }.split('/')[1].split('(')[0].strip
+            # Handle 3 different ways of Opera to declare its version:
+            # - Opera/9.80 (Series 60; Opera Mini/5.1.22784/22.394; U; en) Presto/2.5.25 Version/10.54
+            # - Opera/9.80 (J2ME/MIDP; Opera Mini/5.0 (iPod; U; CPU iPhone OS 4_1 like Mac OS X; en-gb) AppleWebKit/20.2497; U; en) Presto/2.5.25
+            # - Opera/9.80 (J2ME/MIDP; Opera Mini (Linux; U; Android 2.1-update1; Nexus One Build/20.2485; U; en) Presto/2.5.25
+            name_and_version = ua.comment.detect { |comm| comm =~ /Opera Mini/i }.split('/')
+            name_and_version[1].split('(')[0].strip if name_and_version.size > 1
 
-        elsif product = detect_user_agent_by_product("Version")
-          product.version
+        elsif ua = detect_user_agent_by_product("Version")
+          ua.version
 
         elsif ua = detect_user_agent_by_product(/^opera/i)
           # Handle the non standard way of Opera to declare its version
@@ -78,7 +83,7 @@ class UserAgent
 
       def security
         ua = detect { |ua| !ua.comment.nil? }
-        
+
         if ua
           case platform
           when "Windows", "Nintendo Wii"

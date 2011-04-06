@@ -23,13 +23,13 @@ class UserAgent
       # Before version 4.0, Chrome Frame declared itself (unversioned) in a comment;
       # as of 4.0 it declares itself as a separate product with a version.
       def chromeframe
-        detect_user_agent_by_product("chromeframe") || detect_user_agent_by_comment("chromeframe")
+        detect_user_agent_by_product_or_comment("chromeframe")
       end
 
       def chromeframe_version
-        if ua = detect_user_agent_by_product("chromeframe")
+        if ua = detect_user_agent_by_product(/chromeframe/i)
           ua.version
-        elsif ua = detect_user_agent_by_comment("chromeframe")
+        elsif ua = detect_user_agent_by_comment(/chromeframe/i)
           version = ua.comment.detect { |c| c =~ %r{chromeframe/}i }
           version.sub(%r{chromeframe/}i, "") unless version.nil?
         else

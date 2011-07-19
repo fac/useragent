@@ -541,11 +541,11 @@ describe UserAgent::Browsers::InternetExplorer do
   end
 
   describe "Internet Explorer mobile" do
-    it { "Mozilla/4.0 (compatible; MSIE 7.0; Windows Phone OS 7.0; Trident/3.1; IEMobile/7.0; SAMSUNG; SGH-i917)".should be_browser("IE").version("7.0").platform("Windows").os("Windows Phone OS 7.0").compatible(true).mobile(true) }
+    it { "Mozilla/4.0 (compatible; MSIE 7.0; Windows Phone OS 7.0; Trident/3.1; IEMobile/7.0; SAMSUNG; SGH-i917)".should be_browser("IE").version("7.0").platform("Windows Phone").os("Windows Phone OS 7.0").compatible(true).mobile(true) }
     it { "HTC_Touch_3G Mozilla/4.0 (compatible; MSIE 6.0; Windows CE; IEMobile 7.11)".should be_browser("IE").version("6.0").platform("Windows").os("Windows CE").compatible(true).mobile(true) }
-    it { "Mozilla/4.0 (compatible; MSIE 7.0; Windows Phone OS 7.0; Trident/3.1; IEMobile/7.0) ASUS;GALAXY6".should be_browser("IE").version("7.0").platform("Windows").os("Windows Phone OS 7.0").compatible(true).mobile(true) }
-    it { "Mozilla/4.0 (compatible; MSIE 7.0; Windows Phone OS 7.0; Trident/3.1; IEMobile/7.0) Microsoft Corporation;CEPC".should be_browser("IE").version("7.0").platform("Windows").os("Windows Phone OS 7.0").compatible(true).mobile(true) }
-    it { "Mozilla/4.0 (compatible; MSIE 7.0; Windows Phone OS 7.0; Trident/3.1; IEMobile/7.0; LG; LG-E900)".should be_browser("IE").version("7.0").platform("Windows").os("Windows Phone OS 7.0").compatible(true).mobile(true) }
+    it { "Mozilla/4.0 (compatible; MSIE 7.0; Windows Phone OS 7.0; Trident/3.1; IEMobile/7.0) ASUS;GALAXY6".should be_browser("IE").version("7.0").platform("Windows Phone").os("Windows Phone OS 7.0").compatible(true).mobile(true) }
+    it { "Mozilla/4.0 (compatible; MSIE 7.0; Windows Phone OS 7.0; Trident/3.1; IEMobile/7.0) Microsoft Corporation;CEPC".should be_browser("IE").version("7.0").platform("Windows Phone").os("Windows Phone OS 7.0").compatible(true).mobile(true) }
+    it { "Mozilla/4.0 (compatible; MSIE 7.0; Windows Phone OS 7.0; Trident/3.1; IEMobile/7.0; LG; LG-E900)".should be_browser("IE").version("7.0").platform("Windows Phone").os("Windows Phone OS 7.0").compatible(true).mobile(true) }
   end
 
 end

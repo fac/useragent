@@ -5,6 +5,7 @@ class UserAgent
       [/nintendo\s+wii/i,     "Nintendo Wii"],
       [/nintendo\s+ds/i,      "Nintendo DS"],
       [/webtv/i,              "WebTV"],
+      [/windows phone/i,      "Windows Phone"],
       [/win(dows)?/i,         "Windows"],
       [/iphone\s*.*\s*simulator/i, "iPhone Simulator"],
       [/ipad/i,               "iPad"],

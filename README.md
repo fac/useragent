@@ -19,7 +19,7 @@ UserAgent can detect the following linux distributions (and versions) in any giv
 
 ## Detected languages
 
-UserAgent can detect languages/countries based on the {ISO-639-2}[http://www.loc.gov/standards/iso639-2/ISO-639-2_utf-8.txt] list (for language codes) and the {ISO-3166-1}[http://www.iso.org/iso/list-en1-semic-3.txt] list (for country codes) in any given User Agent string. The detected formats are "en", "en-US" and "en_US".
+UserAgent can detect languages/countries based on the [ISO-639-2](http://www.loc.gov/standards/iso639-2/ISO-639-2_utf-8.txt) list (for language codes) and the [ISO-3166-1](http://www.iso.org/iso/list-en1-semic-3.txt) list (for country codes) in any given User Agent string. The detected formats are "en", "en-US" and "en_US".
 
 
 ## Examples

@@ -31,12 +31,12 @@ describe UserAgent::Browsers::Webkit do
   describe UserAgent::Browsers::Webkit do
 
     describe "Unknown os (very short comment)" do
-      it { "Mozilla/5.0 (foo;) AppleWebKit/527+ Arora/0.8.0".should be_browser("Arora").version("0.8.0").webkit_version("527+").build("527+") }
+      it { "Mozilla/5.0 (foo;) AppleWebKit/527+ Arora/0.8.0".should be_browser("Arora").version("0.8.0").webkit_version("527+").build("527+").security(:strong) }
       it { "Mozilla/5.0 (foo; U;) AppleWebKit/527+ Arora/0.8.0".should be_browser("Arora").version("0.8.0").webkit_version("527+").build("527+").security(:strong) }
     end
 
     describe "Without comment" do
-      it { "Mozilla/5.0 AppleWebKit/527+ Arora/0.8.0".should be_browser("Arora").version("0.8.0").webkit_version("527+").build("527+") }
+      it { "Mozilla/5.0 AppleWebKit/527+ Arora/0.8.0".should be_browser("Arora").version("0.8.0").webkit_version("527+").build("527+").security(:strong) }
     end
 
     describe "AdobeAIR" do
@@ -139,6 +139,7 @@ describe UserAgent::Browsers::Webkit do
       describe "Windows" do
         it { "Mozilla/5.0 (Windows; U; Windows NT 5.1; en) AppleWebKit/525.18 (KHTML, like Gecko) Version/3.1.1 Safari/525.18".should be_browser("Safari").version("3.1.1").webkit_version("525.18").build("525.18").platform("Windows").os("Windows XP").language("en").security(:strong) }
         it { "Mozilla/5.0 (Windows; U; Windows NT 5.1; en) AppleWebKit/526.9 (KHTML, like Gecko) Version/4.0dp1 Safari/526.8".should be_browser("Safari").version("4.0dp1").webkit_version("526.9").build("526.9").platform("Windows").os("Windows XP").language("en").security(:strong) }
+        it { "Mozilla/5.0 (Windows NT 6.0; WOW64) AppleWebKit/534.27+ (KHTML, like Gecko) Version/5.0.4 Safari/533.20.27".should be_browser("Safari").version("5.0.4").webkit_version("534.27+").build("534.27+").platform("Windows").os("Windows Vista").security(:strong) }
       end
 
       describe "Macintosh, version mapping up to 2.2" do
@@ -179,6 +180,7 @@ describe UserAgent::Browsers::Webkit do
         it { "Mozilla/5.0 (Macintosh; U; Intel Mac OS X 10_5_3; en-us) AppleWebKit/526.9 (KHTML, like Gecko) Version/4.0dp1 Safari/526.8".should be_browser("Safari").version("4.0dp1").webkit_version("526.9").build("526.9").platform("Macintosh").os("Intel Mac OS X 10.5.3").language("en-US").security(:strong) }
         it { "Mozilla/5.0 (Macintosh; U; Intel Mac OS X 10_6_3; en-us) AppleWebKit/533.16 (KHTML, like Gecko) Version/5.0 Safari/533.16".should be_browser("Safari").version("5.0").webkit_version("533.16").build("533.16").platform("Macintosh").os("Intel Mac OS X 10.6.3").language("en-US").security(:strong) }
         it { "Mozilla/5.0 (Macintosh; U; Intel Mac OS X 10_6_5; en-us) AppleWebKit/533.19.4 (KHTML, like Gecko) Version/5.0.3 Safari/533.19.4".should be_browser("Safari").version("5.0.3").webkit_version("533.19.4").build("533.19.4").platform("Macintosh").os("Intel Mac OS X 10.6.5").language("en-US").security(:strong) }
+        it { "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_6_7) AppleWebKit/534.27+ (KHTML, like Gecko) Version/5.0.4 Safari/533.20.27".should be_browser("Safari").version("5.0.4").webkit_version("534.27+").build("534.27+").platform("Macintosh").os("Intel Mac OS X 10.6.7").security(:strong) }
       end
 
     end

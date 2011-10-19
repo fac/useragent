@@ -46,7 +46,7 @@ describe UserAgent::Browsers::InternetExplorer do
       "Mozilla/4.0 (compatible; MSIE 4.01; Windows CE; PPC; 240x320; Sprint:PPC-6700; PPC; 240x320)",
       "Mozilla/4.0 PPC (compatible; MSIE 4.01; Windows CE; PPC; 240x320; Sprint:PPC-6700; PPC; 240x320)"].each do |user_agent|
         it "should parse #{user_agent}" do
-          user_agent.should be_browser("IE").version("4.01").platform("Windows").os("Windows CE").compatible(true).mobile(true)
+          user_agent.should be_browser("IE").version("4.01").platform("Windows").os("Windows CE").compatible(true).mobile(true).crawler(false)
         end
       end
 

@@ -32,6 +32,10 @@ class UserAgent
       def webkit?
         false
       end
+      
+      def crawler?
+        false
+      end
 
       def application
         first

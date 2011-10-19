@@ -1,3 +1,7 @@
+== October, 19 2011 [by {dblock}[http://github.com/dblock/]]
+
+* Googlebot detection
+
 == January, 31 2011 [by {rymai}[http://github.com/rymai/]]
 
 === Changes:

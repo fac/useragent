@@ -7,6 +7,7 @@ RSpec::Matchers.define :be_browser do |browser|
   chain :linux_distribution   do |linux_distribution|   @linux_distribution   = linux_distribution   end # optional
   chain :language             do |language|             @language             = language             end # optional
   chain :mobile               do |mobile|               @mobile               = mobile               end # optional
+  chain :crawler              do |crawler|              @crawler              = crawler              end # optional
   chain :chromeframe          do |chromeframe|          @chromeframe          = chromeframe          end # optional
   chain :chromeframe_version  do |chromeframe_version|  @chromeframe_version  = chromeframe_version  end # optional
   chain :gecko_version        do |gecko_version|        @gecko_version        = gecko_version        end # optional
@@ -25,6 +26,7 @@ RSpec::Matchers.define :be_browser do |browser|
     @linux_distribution  = nil      unless @linux_distribution
     @language            = nil      unless @language
     @mobile              = false    unless @mobile
+    @crawler             = false    unless @crawler
     @chromeframe         = false    unless @chromeframe
     @chromeframe_version = nil      unless @chromeframe_version
     @gecko_version       = nil      unless @gecko_version
@@ -34,6 +36,7 @@ RSpec::Matchers.define :be_browser do |browser|
     @build               = nil      unless @build
 
     if false # debug
+      puts "CLASS: #{@ua.class.name}"
       puts @ua.inspect
       puts "ACTUAL/EXPECTED"
       puts "Browser: #{@ua.browser}/#{browser}"                                   unless @ua.browser == browser
@@ -44,6 +47,7 @@ RSpec::Matchers.define :be_browser do |browser|
       puts "Linux Distribution: #{@ua.linux_distribution}/#{@linux_distribution}" unless @ua.linux_distribution == @linux_distribution
       puts "Language: #{@ua.language}/#{@language}"                               unless @ua.language == @language
       puts "Mobile: #{@ua.mobile?}/#{@mobile}"                                    unless @ua.mobile? == @mobile
+      puts "Crawler: #{@ua.crawler?}/#{@crawler}"                                 unless @ua.crawler? == @crawler
       puts "Security: #{@ua.security}/#{@security}"                               unless @ua.security == @security
 
       puts "Compatible: #{@ua.compatible?}/#{@compatible}" unless !@ua.respond_to?(:compatible?) || (@ua.compatible? == @compatible)
@@ -61,13 +65,13 @@ RSpec::Matchers.define :be_browser do |browser|
     end
 
     ie_conditions     = !@ua.respond_to?(:compatible?) || (@ua.compatible? == @compatible) &&
-                        !@ua.respond_to?(:chromeframe) || (!@ua.chromeframe.nil? == @chromeframe && @ua.chromeframe_version == @chromeframe_version)
+                        !@ua.respond_to?(:chromeframe) || (@ua.respond_to?(:chromeframe) && !@ua.chromeframe.nil? == @chromeframe && @ua.chromeframe_version == @chromeframe_version)
     webkit_conditions = !@ua.webkit? || (@ua.webkit.version == @webkit_version && @ua.build == @build)
     gecko_conditions  = !@ua.gecko? || (@ua.gecko_version == @gecko_version)
 
     @ua.browser == browser && @ua.type == @type && @ua.version == @version && @ua.platform == @platform &&
       @ua.os == @os && @ua.linux_distribution == @linux_distribution && @ua.language == @language &&
-      @ua.security == @security && @ua.mobile? == @mobile && ie_conditions && webkit_conditions && gecko_conditions
+      @ua.security == @security && @ua.mobile? == @mobile && @ua.crawler? == @crawler && ie_conditions && webkit_conditions && gecko_conditions
   end
 
   failure_message_for_should do |user_agent_string|
@@ -78,11 +82,13 @@ RSpec::Matchers.define :be_browser do |browser|
     message += "\nPlatform: '#{@ua.platform}', '#{@platform}' was expected"                               unless @ua.platform == @platform
     message += "\nOS: '#{@ua.os}', '#{@os}' was expected"                                                 unless @ua.os == @os
     message += "\nLinux Distribution: '#{@ua.linux_distribution}', '#{@linux_distribution}' was expected" unless @ua.linux_distribution == @linux_distribution
-    message += "\nLanguage: '#{@ua.language}', '#{@language}' was expected"                           unless @ua.language == @language
+    message += "\nLanguage: '#{@ua.language}', '#{@language}' was expected"                               unless @ua.language == @language
     message += "\nSecurity: '#{@ua.security}', '#{@security}' was expected"                               unless @ua.security == @security
     message += "\nMobile: '#{@ua.mobile?}', '#{@mobile}' was expected"                                    unless @ua.mobile? == @mobile
+    message += "\nCrawler: '#{@ua.crawler?}', '#{@crawler}' was expected"                                 unless @ua.crawler? == @crawler
 
     message += "\nCompatible: '#{@ua.compatible?}', '#{@compatible}' was expected" unless !@ua.respond_to?(:compatible?) || (@ua.compatible? == @compatible)
+
     if @ua.respond_to?(:chromeframe)
       message += "\nChromeframe: '#{@ua.chromeframe}', '#{@chromeframe}' was expected"                         unless !@ua.chromeframe.nil? == @chromeframe
       message += "\nChromeframe Version: '#{@ua.chromeframe_version}', '#{@chromeframe_version}' was expected" unless @ua.chromeframe_version == @chromeframe_version

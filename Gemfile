@@ -2,14 +2,19 @@ source :rubygems
 
 gemspec
 
-gem 'rake'
+group :development do
+  gem 'guard'
 
-group :test do
-  gem 'rspec', '~> 2.4.0'
+  # File modification detection libraries
+  gem 'rb-inotify', :require => false # Linux
+  gem 'rb-fsevent', :require => false # Mac OS X
+  gem 'rb-fchange', :require => false # Windows
+
+  # Notifications
+  gem 'ruby_gntp' # Linux, Mac OS X, Windows
 end
 
 group :guard do
   gem 'rb-fsevent'
-  gem 'growl'
   gem 'guard-rspec'
 end

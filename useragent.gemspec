@@ -14,7 +14,7 @@ Gem::Specification.new do |s|
 
   s.rubyforge_project = "useragent"
 
-  s.files         = Dir.glob('{lib}/**/*') + %w[CHANGELOG.rdoc LICENSE README.md]
+  s.files         = Dir.glob('{lib}/**/*') + %w[CHANGELOG.md LICENSE README.md]
   s.test_files    = Dir.glob('{spec}/**/*')
   s.require_paths = ["lib"]
   

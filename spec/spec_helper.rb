@@ -1,4 +1,3 @@
-require 'rubygems'
 require 'useragent'
 require 'rspec'
 

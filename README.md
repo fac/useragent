@@ -1,4 +1,4 @@
-# UserAgent [![Build Status](https://secure.travis-ci.org/Jilion/useragent.png?branch=master)](http://travis-ci.org/Jilion/useragent)
+# UserAgent [![Build Status](https://secure.travis-ci.org/jilion/useragent.png?branch=master)](http://travis-ci.org/jilion/useragent)
 
 UserAgent is a Ruby library that parses and compares HTTP User Agents.
 

@@ -8,7 +8,7 @@ Gem::Specification.new do |s|
   s.platform    = Gem::Platform::RUBY
   s.authors     = ["Joshua Peek"]
   s.email       = ["josh@joshpeek.com"]
-  s.homepage    = "https://rubygems.org/gems/useragent"
+  s.homepage    = "https://github.com/jilion/useragent"
   s.summary     = %q{HTTP User Agent parser}
   s.description = %q{UserAgent is a Ruby library that parses and compares HTTP User Agents.}
 

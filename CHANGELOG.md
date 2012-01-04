@@ -1,12 +1,13 @@
-## Master - https://github.com/Jilion/useragent
+## Master - https://github.com/jilion/useragent
 
 ### New feature - 19 October 2011
 
-- [#2](https://github.com/Jilion/useragent/pull/2): Googlebot detection. ([@dblock][])
+- [#4](https://github.com/jilion/useragent/pull/4): Avoid lexical comparisons of versions. ([@port8080][])
+- [#2](https://github.com/jilion/useragent/pull/2): Googlebot detection. ([@dblock][])
 
 ### Bug fix - 6 April 2011
 
-- [#1](https://github.com/Jilion/useragent/pull/1): Fix chromeframe. ([@noefroidevaux][])
+- [#1](https://github.com/jilion/useragent/pull/1): Fix chromeframe. ([@noefroidevaux][])
 
 ### Improvements - 31 January 2011
 
@@ -60,4 +61,5 @@ Huge refactoring and improvement of the whole gem, see details below. ([@rymai][
 
 [@dblock]: https://github.com/dblock
 [@noefroidevaux]: https://github.com/noefroidevaux
+[@port8080]: https://github.com/port8080
 [@rymai]: https://github.com/rymai

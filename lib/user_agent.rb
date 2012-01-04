@@ -79,7 +79,7 @@ class UserAgent
   def <=>(other)
     if @product == other.product
       if @version && other.version
-        @version <=> other.version
+        Gem::Version.new(@version) <=> Gem::Version.new(other.version)
       else
         0
       end

@@ -6,6 +6,8 @@ describe UserAgent::Browsers::All do
       @ie_7    = UserAgent.parse("Mozilla/4.0 (compatible; MSIE 7.0; Windows NT 6.0)")
       @ie_6    = UserAgent.parse("Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.1; SV1)")
       @firefox = UserAgent.parse("Mozilla/5.0 (Macintosh; U; Intel Mac OS X; en-US; rv:1.8.1.14) Gecko/20080404 Firefox/2.0.0.14")
+      @fake_chrome_2 = UserAgent.parse("Mozilla/5.0 (Macintosh; Intel Mac OS X 10_7_2) AppleWebKit/535.7 (KHTML, like Gecko) Chrome/2.0.912.63 Safari/535.7")
+      @chrome  = UserAgent.parse("Mozilla/5.0 (Macintosh; Intel Mac OS X 10_7_2) AppleWebKit/535.7 (KHTML, like Gecko) Chrome/16.0.912.63 Safari/535.7")
     end
 
     describe "#<" do
@@ -14,6 +16,7 @@ describe UserAgent::Browsers::All do
       specify { @ie_6.should     < @ie_7 }
       specify { @ie_6.should_not < @ie_6 }
       specify { @ie_7.should_not < @ie_6 }
+      specify { @fake_chrome_2.should < @chrome}
     end
 
     describe "#<=" do

@@ -68,13 +68,13 @@ describe UserAgent::Browsers::Other do
   end
 
   describe "Playstation 3" do
-    it { "Mozilla/5.0 (PLAYSTATION 3; 3.55)".should be_browser("Playstation 3").version("3.55").platform("Playstation 3") }
-    it { "Mozilla/5.0 (PLAYSTATION 3; 1.00)".should be_browser("Playstation 3").version("1.00").platform("Playstation 3") }
+    it { "Mozilla/5.0 (PLAYSTATION 3; 3.55)".should be_browser("PlayStation 3").version("3.55").platform("PlayStation 3").os("PlayStation 3") }
+    it { "Mozilla/5.0 (PLAYSTATION 3; 1.00)".should be_browser("PlayStation 3").version("1.00").platform("PlayStation 3").os("PlayStation 3") }
   end
 
   describe "Playstation Portable" do
-    it { "PSP (PlayStation Portable); 2.00".should be_browser("Playstation Portable").mobile(true) }
-    it { "Mozilla/4.0 (PSP (PlayStation Portable); 2.00)".should be_browser("Playstation Portable").mobile(true) }
+    it { "PSP (PlayStation Portable); 2.00".should be_browser("PlayStation Portable").platform("PlayStation Portable").os("PlayStation Portable").mobile(true) }
+    it { "Mozilla/4.0 (PSP (PlayStation Portable); 2.00)".should be_browser("PlayStation Portable").platform("PlayStation Portable").os("PlayStation Portable").mobile(true) }
   end
 
 end

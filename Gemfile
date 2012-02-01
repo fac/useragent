@@ -4,6 +4,7 @@ gemspec
 
 group :development do
   gem 'guard'
+  gem 'guard-rspec'
 
   # File modification detection libraries
   gem 'rb-inotify', :require => false # Linux
@@ -12,9 +13,7 @@ group :development do
 
   # Notifications
   gem 'ruby_gntp' # Linux, Mac OS X, Windows
-end
-
-group :guard do
-  gem 'rb-fsevent'
-  gem 'guard-rspec'
+  platforms :ruby do
+    gem 'rb-readline'
+  end
 end

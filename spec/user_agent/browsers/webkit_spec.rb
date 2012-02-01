@@ -33,6 +33,8 @@ describe UserAgent::Browsers::Webkit do
     describe "Unknown os (very short comment)" do
       it { "Mozilla/5.0 (foo;) AppleWebKit/527+ Arora/0.8.0".should be_browser("Arora").version("0.8.0").webkit_version("527+").build("527+").security(:strong) }
       it { "Mozilla/5.0 (foo; U;) AppleWebKit/527+ Arora/0.8.0".should be_browser("Arora").version("0.8.0").webkit_version("527+").build("527+").security(:strong) }
+      it { "Mozilla/5.0 (foo; I;) AppleWebKit/527+ Arora/0.8.0".should be_browser("Arora").version("0.8.0").webkit_version("527+").build("527+").security(:weak) }
+      it { "Mozilla/5.0 (foo; N;) AppleWebKit/527+ Arora/0.8.0".should be_browser("Arora").version("0.8.0").webkit_version("527+").build("527+").security(:none) }
     end
 
     describe "Without comment" do
@@ -118,6 +120,12 @@ describe UserAgent::Browsers::Webkit do
       it { "Mozilla/5.0 (Macintosh; U; PowerPC Mac OS X 10_5_8; en-US) AppleWebKit/531.9+(KHTML, like Gecko, Safari/528.16) OmniWeb/v622.10.0".should be_browser("OmniWeb").version("622.10.0").webkit_version("531.9+").build("531.9+").platform("Macintosh").os("PowerPC Mac OS X 10.5.8").language("en-US").security(:strong) }
     end
 
+    describe "Dolfin" do
+      it { "Mozilla/5.0 (SAMSUNG; SAMSUNG-GT-S5380D/1.0; U; Bada/2.0; en-us) AppleWebKit/534.20 (KHTML, like Gecko) Dolfin/3.0 Mobile HVGA SMM-MMS/1.2.0 OPN-B".should be_browser("Dolfin").version("3.0").webkit_version("534.20").build("534.20").platform("Samsung").os("Bada 2.0").language("en-US").security(:strong).mobile(true) }
+      it { "Mozilla/5.0 (SAMSUNG; SAMSUNG-GT-S8500/S8500XXJEE; U; Bada/1.0; sv-se) AppleWebKit/533.1 (KHTML, like Gecko) Dolfin/2.0 Mobile WVGA SMM-MMS/1.2.0 OPN-B".should be_browser("Dolfin").version("2.0").webkit_version("533.1").build("533.1").platform("Samsung").os("Bada 1.0").language("sv-SE").security(:strong).mobile(true) }
+      it { "Mozilla/5.0 (SAMSUNG; SAMSUNG-GT-S8530-ORANGE/S8530BVKA1; U; Bada/1.2; fr-fr) AppleWebKit/533.1 (KHTML, like Gecko) Dolfin/2.2 Mobile WVGA SMM-MMS/1.2.0 NexPlayer/3.0 profile/MIDP-2.1 configuration/CLDC-1.1 OPN-B".should be_browser("Dolfin").version("2.2").webkit_version("533.1").build("533.1").platform("Samsung").os("Bada 1.2").language("fr-FR").security(:strong).mobile(true) }
+    end
+
     describe "Shiira" do
       it { "Mozilla/5.0 (Macintosh; U; PPC Mac OS X; ja-jp) AppleWebKit/419 (KHTML, like Gecko) Shiira/1.2.3 Safari/125".should be_browser("Shiira").version("1.2.3").webkit_version("419").build("419").platform("Macintosh").os("PPC Mac OS X").language("ja-JP").security(:strong) }
     end
@@ -125,6 +133,7 @@ describe UserAgent::Browsers::Webkit do
     describe "Vienna" do
       it { "Mozilla/5.0 (Macintosh; U; Intel Mac OS X 10_6_4; en-us) AppleWebKit/533.17.8 (KHTML, like Gecko) Vienna/2.5.0.2501".should be_browser("Vienna").version("2.5.0.2501").webkit_version("533.17.8").build("533.17.8").platform("Macintosh").os("Intel Mac OS X 10.6.4").language("en-US").security(:strong) }
     end
+
     describe "webOS" do
       it { "Mozilla/5.0 (webOS/1.4.0; U; en-US) AppleWebKit/532.2 (KHTML, like Gecko) Version/1.0 Safari/532.2 Pre/1.1".should be_browser("webOS").version("1.0").webkit_version("532.2").build("532.2").platform("webOS").os("Palm Pre 1.1").language("en-US").security(:strong).mobile(true) }
       it { "Mozilla/5.0 (webOS/1.4.0; U; en-US) AppleWebKit/532.2 (KHTML, like Gecko) Version/1.0 Safari/532.2 Pixi/1.1".should be_browser("webOS").version("1.0").webkit_version("532.2").build("532.2").platform("webOS").os("Palm Pixi 1.1").language("en-US").security(:strong).mobile(true) }
@@ -132,7 +141,8 @@ describe UserAgent::Browsers::Webkit do
 
     describe "Symbian" do
       it { "Mozilla/5.0 (SymbianOS/9.3; U; Series60/3.2 Nokia6790s-1c/20.007; Profile/MIDP-2.1 Configuration/CLDC-1.1 ) AppleWebKit/413 (KHTML, like Gecko) Safari/413".should be_browser("Symbian").webkit_version("413").build("413").platform("Nokia").os("SymbianOS 9.3").security(:strong).mobile(true) }
-      it { "Mozilla/5.0 (SymbianOS/9.4; Series60/5.0 NokiaN97-1/20.0.027; Profile/MIDP-2.1 Configuration/CLDC-1.1) AppleWebKit/525 (KHTML, like Gecko) BrowserNG/7.1.18124".should be_browser("Symbian").webkit_version("525").build("525").platform("Nokia").os("SymbianOS 9.4").mobile(true) }
+      it { "Mozilla/5.0 (SymbianOS/9.4; Series60/5.0 NokiaN97-1/20.0.027; Profile/MIDP-2.1 Configuration/CLDC-1.1) AppleWebKit/525 (KHTML, like Gecko) BrowserNG/7.1.18124".should be_browser("Symbian").webkit_version("525").build("525").platform("Nokia").os("SymbianOS 9.4").security(:strong).mobile(true) }
+      it { "Mozilla/5.0 (SymbianOS/9.3; U; Series60/3.2 Samsung/I8510/DJHJ4; Profile/MIDP-2.1 Configuration/CLDC-1.1 ) AppleWebKit/413 (KHTML, like Gecko) Safari/413".should be_browser("Symbian").webkit_version("413").build("413").platform("Samsung").os("SymbianOS 9.3").security(:strong).mobile(true) }
     end
 
     describe "Destkop Safari" do
@@ -213,7 +223,13 @@ describe UserAgent::Browsers::Webkit do
 
       describe "iPad" do
         it { "Mozilla/5.0 (iPad; U; CPU OS 3_2 like Mac OS X; en-us) AppleWebKit/531.21.10 (KHTML, like Gecko) Version/4.0.4 Mobile/7B367 Safari/531.21.10".should be_browser("Safari").version("4.0.4").webkit_version("531.21.10").build("531.21.10").platform("iPad").os("iOS 3.2").language("en-US").security(:strong).mobile(true) }
+        it { "Mozilla/5.0 (iPad; U; CPU iPhone OS 4_2_1 like Mac OS X; en_US) AppleWebKit (KHTML, like Gecko) Mobile [FBAN/FBForIPhone;FBAV/4.0;FBBV/4000.0;FBDV/iPad1,1;FBMD/iPad;FBSN/iPhone OS;FBSV/4.2.1;FBSS/1; FBCR/Maxis;FBID/tablet;FBLC/en_US;FBSF/1.0]".should be_browser("Safari").platform("iPad").os("iOS 4.2.1").language("en-US").security(:strong).mobile(true) }
+        it { "Mozilla/5.0 (iPad; U; CPU iPhone OS 5_0 like Mac OS X; en_US) AppleWebKit (KHTML, like Gecko) Mobile [FBAN/FBForIPhone;FBAV/4.1;FBBV/4100.0;FBDV/iPad2,2;FBMD/iPad;FBSN/iPhone OS;FBSV/5.0;FBSS/1; FBCR/".should be_browser("Safari").platform("iPad").os("iOS 5.0").language("en-US").security(:strong).mobile(true) }
       end
+    end
+
+    describe "Nokia Safari" do
+      it { "Nokia7230/5.0 (10.82) Profile/MIDP-2.1 Configuration/CLDC-1.1 Mozilla/5.0 AppleWebKit/420+ (KHTML, like Gecko) Safari/420+".should be_browser("Safari").webkit_version("420+").build("420+").platform("Nokia").security(:strong).mobile(true) }
     end
 
   end

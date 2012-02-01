@@ -1,4 +1,21 @@
+require 'rspec/expectations'
+
 RSpec::Matchers.define :be_browser do |browser|
+  @version             = nil
+  @type                = :browser
+  @platform            = nil
+  @os                  = nil
+  @linux_distribution  = nil
+  @language            = nil
+  @mobile              = false
+  @crawler             = false
+  @chromeframe         = false
+  @chromeframe_version = nil
+  @gecko_version       = nil
+  @security            = nil
+  @compatible          = false
+  @webkit_version      = nil
+  @build               = nil
 
   chain :version              do |version|              @version              = version              end # mandatory
   chain :type                 do |type|                 @type                 = type                 end # optional

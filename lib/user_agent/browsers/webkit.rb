@@ -8,6 +8,7 @@ class UserAgent
         Android
         BlackBerry
         Chrome
+        Dolfin
         Epiphany
         Fluid
         Gruml
@@ -144,13 +145,20 @@ class UserAgent
         end
       end
 
+      # By default, WebKit browsers are considered secure
       def security
         ua = detect { |ua| !ua.comment.nil? }
-        ua && ua.comment.size > 2 ? SECURITY[ua.comment[1]] : SECURITY['U']
+        if ua
+          if detected_security = ua.comment.detect { |c| SECURITY.keys.include?(c.upcase) }
+            return SECURITY[detected_security.upcase]
+          end
+        end
+
+        SECURITY['U']
       end
 
       def mobile?
-        %w[webOS Symbian].include?(browser) || !detect_user_agent_by_product("Mobile").nil?
+        %w[webOS Symbian].include?(browser) || %w[Nokia].include?(platform) || !detect_user_agent_by_product("Mobile").nil?
       end
 
     end

@@ -15,8 +15,8 @@ class UserAgent
         [%r{Lynx[-/\s]?(.*)}i,                   "Lynx"],
         [%r{NetFront[-/\s]?(.*)}i,               "NetFront"],
         [%r{NetPositive[-/\s]?(.*)}i,            "NetPositive"],
-        [%r{PLAYSTATION 3}i,                     "Playstation 3"],
-        [%r{PSP|PLAYSTATION Portable}i,          "Playstation Portable"]
+        [%r{PLAYSTATION 3}i,                     "PlayStation 3"],
+        [%r{PSP|PLAYSTATION Portable}i,          "PlayStation Portable"]
       ]
 
       def self.extend?(agent)
@@ -29,7 +29,7 @@ class UserAgent
       end
       
       def platform
-        if browser == "Playstation 3"
+        if browser == "PlayStation 3"
           browser
         else
           super
@@ -37,7 +37,7 @@ class UserAgent
       end
 
       def version
-        if platform == "Playstation 3" && application.comment
+        if platform == "PlayStation 3" && application.comment
           application.comment[1]
         
         elsif v = detect_version_from(REGEXP_AND_NAMES)
@@ -47,7 +47,7 @@ class UserAgent
       end
 
       def mobile?
-        ["Playstation Portable"].include?(browser)
+        ["PlayStation Portable"].include?(browser)
       end
 
     end

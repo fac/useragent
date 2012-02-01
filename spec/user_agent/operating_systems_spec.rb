@@ -27,7 +27,7 @@ describe UserAgent::OperatingSystems do
         end
       end
     end
-    
+
     # OS with no version detection
     %w[AmigaOS BlackBerryOS].each do |os|
       describe "#{os} detection" do

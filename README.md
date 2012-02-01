@@ -5,17 +5,41 @@ UserAgent is a Ruby library that parses and compares HTTP User Agents.
 ## Detected platforms
 
 UserAgent can detect the following platforms in any given User Agent string:
-  Nintendo Wii, WebTV, Windows, iPad, iPod, iPhone Simulator, iPhone, SunOS, webOS, Macintosh, Android, FreeBSD, OpenBSD, NetBSD, Linux, Nokia, BlackBerry, OpenSolaris, OS/2, BeOS, AIX and X11.
+
+- Windows;
+- Macintosh;
+- iPhone Simulator, iPad, iPod, iPhone;
+- FreeBSD, OpenBSD, NetBSD, SunOS, OpenSolaris, AIX, X11, Linux;
+- BeOS, OS/2;
+- Nintendo Wii, Nintendo DS;
+- PlayStation 3, PlayStation Portable;
+- WebTV;
+- SunOS;
+- webOS;
+- Android, Samsung, Nokia, BlackBerry.
 
 ## Detected operating systems
 
 UserAgent can detect the following operating systems (and versions, except for the Windows) in any given User Agent string:
-  Windows 7, Windows Vista, Windows Server 2003, Windows XP, Windows 2000, Service Pack 1 (SP1), Windows NT, Windows NT 4.0, Windows NT 4.0, Windows NT, Windows 2000, Windows Me, FreeBSD, OpenBSD, NetBSD, SunOS, BeOS, OS/2, WebTV, Linux, AmigaOS and BlackBerryOS.
+
+- Windows 7, Vista, Server 2003, XP, 2000/Service Pack 1 (SP1), 2000, NT 4.0, NT, 2000, Me;
+- PPC Mac OS X, Intel Mac OS X;
+- FreeBSD, OpenBSD, NetBSD, SunOS, Linux;
+- BeOS, OS/2, AmigaOS;
+- WebTV;
+- Android, Bada, BlackBerryOS, SymbianOS;
+- Nintendo DS;
+- PlayStation 3, PlayStation Portable.
 
 ## Detected linux distributions
 
 UserAgent can detect the following linux distributions (and versions) in any given User Agent string:
-  Debian, Kubuntu, Ubuntu, Fedora, SUSE, Gentoo and Mandriva.
+- Debian, Kubuntu, Ubuntu;
+- Red Hat;
+- Fedora;
+- SUSE;
+- Gentoo;
+- Mandriva.
 
 ## Detected languages
 

@@ -4,6 +4,7 @@ require 'user_agent/browsers/opera'
 require 'user_agent/browsers/internet_explorer'
 require 'user_agent/browsers/webkit'
 require 'user_agent/browsers/googlebot'
+require 'user_agent/browsers/googlebot_mobile'
 require 'user_agent/browsers/gecko'
 
 class UserAgent
@@ -18,7 +19,8 @@ class UserAgent
     def self.all
       # Opera must be checked before Firefox due to the odd user agents used in some older versions of Opera
       # Googlebot must be checked before Gecko because 2.1 uses Mozilla as user-agent
-      [Other, Opera, InternetExplorer, Webkit, Googlebot, Gecko]
+      # Googlebot mobile must be checked before Webkit and Googlebot
+      [Other, Opera, InternetExplorer, GooglebotMobile, Webkit, Googlebot, Gecko]
     end
 
     def self.extend(array)

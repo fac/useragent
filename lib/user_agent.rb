@@ -56,7 +56,7 @@ class UserAgent
     else
       raise ArgumentError, "expected a value for product"
     end
-
+    
     if version && !version.empty?
       @version = version
     else

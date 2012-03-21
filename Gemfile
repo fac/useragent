@@ -2,8 +2,9 @@ source :rubygems
 
 gemspec
 
-group :development do
-  gem 'guard'
+gem 'rake'
+
+group :tools do
   gem 'guard-rspec'
 
   # File modification detection libraries

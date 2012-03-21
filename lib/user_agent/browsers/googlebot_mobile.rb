@@ -10,15 +10,17 @@ class UserAgent
       end
       
       def version
-        (application.product == 'Safari' &&
-         application.comment &&
-         application.comment[1]) ? 
-         application.comment[1].sub("Googlebot-Mobile/", "") :
-         application.version.sub(';', '')
+        ua = detect_user_agent_by_comment(/compatible/i)
+        if !ua.nil? && ua.comment && ua.comment[1]
+          ua.comment[1].sub("Googlebot-Mobile/", "")
+        else
+          application.version.sub(';', '')
+        end
       end
 
       def compatibility
-        application.comment ? application.comment[0] : nil
+        ua = detect_user_agent_by_comment(/compatible/i)
+        (ua && ua.comment) ? ua.comment[0] : nil
       end
 
       def compatible?

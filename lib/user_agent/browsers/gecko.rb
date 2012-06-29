@@ -124,6 +124,10 @@ class UserAgent
         end
       end
 
+      def mobile?
+        os == 'Mobile'
+      end
+
     end
   end
 end

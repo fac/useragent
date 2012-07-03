@@ -172,6 +172,10 @@ describe UserAgent::Browsers::Gecko do
       it { "Mozilla/5.0 (Nintendo DS v4; U; M3 Adapter CF + PassMe2; en-US; rv:1.8.0.6 ) Gecko/20060728 Firefox/1.5.0.6 (firefox.gba.ds)".should be_browser("Firefox").version("1.5.0.6").gecko_version("20060728").platform("Nintendo DS").os("Nintendo DS v4").language("en-US").security(:strong) }
       it { "Mozilla/5.0 (Nintendo DSi; U; M3 Adapter CF + PassMe2; en-US; rv:1.8.0.6 ) Gecko/20060728 Firefox/1.5.0.6 (firefox.gba.ds)".should be_browser("Firefox").version("1.5.0.6").gecko_version("20060728").platform("Nintendo DS").os("Nintendo DS i").language("en-US").security(:strong) }
     end
+
+    describe "Android" do
+      it { "Mozilla/5.0 (Android; Mobile; rv:14.0) Gecko/14.0 Firefox/14.0".should be_browser("Firefox").version("14.0").gecko_version("14.0").platform("Android").os("Android").security(:strong).mobile(true) }
+    end
   end
 
   describe "Mozilla" do

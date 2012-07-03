@@ -77,9 +77,9 @@ class UserAgent
 
         elsif regexp_and_os = OperatingSystems::REGEXP_AND_NAMES.detect { |regexp_and_os| application.comment && application.comment[application.comment[1] == 'U' ? 2 : 1] =~ regexp_and_os[0] }
           "#{regexp_and_os[1]}#{" #{$1}" unless !$1 || $1.strip.empty?}"
-
         elsif ua = detect { |ua| !ua.comment.nil? }
-          ua.comment[ua.comment[1] == 'U' ? 2 : 1]
+          os_name = ua.comment[ua.comment[1] == 'U' ? 2 : 1]
+          os_name == 'Mobile' ? ua.comment[0] : os_name
         end
       end
 
@@ -125,7 +125,8 @@ class UserAgent
       end
 
       def mobile?
-        os == 'Mobile'
+        ua = detect { |ua| !ua.comment.nil? }
+        ua.nil? ? false : ua.comment[1] == 'Mobile'
       end
 
     end

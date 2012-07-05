@@ -8,13 +8,13 @@ class UserAgent
       def browser
         "Googlebot-Mobile"
       end
-      
+
       def version
         ua = detect_user_agent_by_comment(/compatible/i)
-        if !ua.nil? && ua.comment && ua.comment[1]
-          ua.comment[1].sub("Googlebot-Mobile/", "")
+        if ua && ua.comment && ua.comment[1]
+          ua.comment[1].sub('Googlebot-Mobile/', '')
         else
-          application.version.sub(';', '')
+          application.version ? application.version.sub(';', '') : nil
         end
       end
 
@@ -30,7 +30,7 @@ class UserAgent
       def crawler?
         true
       end
-      
+
       def mobile?
         true
       end

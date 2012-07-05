@@ -10,11 +10,12 @@ class UserAgent
       end
 
       def version
-        (application.product == 'Mozilla' && 
-         application.comment &&
-         application.comment[1]) ? 
-         application.comment[1].sub("Googlebot/", "") : 
-         application.version 
+        if ua = detect_user_agent_by_comment(%r{Googlebot/})
+          ua.comment.detect { |comm| comm =~ %r{Googlebot/(\S+)} }
+          $1
+        else
+         application.version
+       end
       end
 
       def compatibility

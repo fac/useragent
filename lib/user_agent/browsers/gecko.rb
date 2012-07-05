@@ -31,9 +31,9 @@ class UserAgent
       end
 
       def browser
-        browser_info = GECKO_BROWSERS.detect { |browser| detect_user_agent_by_product_or_comment(browser.is_a?(Array) ? browser[0] : browser) }
-        if browser_info
-          browser_info.is_a?(Array) ? browser_info[1] : browser_info
+        bi = browser_info
+        if bi
+          bi.is_a?(Array) ? bi[1] : bi
         else
           super
         end
@@ -44,8 +44,8 @@ class UserAgent
           ua.comment.detect { |comm| comm =~ /^rv:([^\)]+).*/ }
           $1
         else
-          browser_info = GECKO_BROWSERS.detect { |browser| detect_user_agent_by_product_or_comment(browser.is_a?(Array) ? browser[0] : browser) }
-          if browser_info && v = send(browser_info.is_a?(Array) ? browser_info[0] : browser_info).version
+          bi = browser_info
+          if bi && v = send(bi.is_a?(Array) ? bi[0] : bi).version
             v.partition('/')[0] # Handle strange version specification like 'Sunrise/4.0.1/like'
           else
             super
@@ -127,6 +127,12 @@ class UserAgent
       def mobile?
         ua = detect { |ua| !ua.comment.nil? }
         ua.nil? ? false : ua.comment[1] == 'Mobile'
+      end
+
+      private
+
+      def browser_info
+        GECKO_BROWSERS.detect { |browser| detect_user_agent_by_product_or_comment(browser.is_a?(Array) ? browser[0] : browser) }
       end
 
     end

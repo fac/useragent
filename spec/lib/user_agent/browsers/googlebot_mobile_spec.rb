@@ -15,7 +15,8 @@ describe UserAgent::Browsers::GooglebotMobile do
       crawler(true).
       mobile(true) }
     it { "Googlebot-Mobile/2.1; +http://www.google.com/bot.html".should be_browser("Googlebot-Mobile").version("2.1").crawler(true).mobile(true) }
-  end
+    it { "Googlebot-Mobile".should be_browser("Googlebot-Mobile").version(nil).crawler(true).mobile(true) }
+end
 
 end
 

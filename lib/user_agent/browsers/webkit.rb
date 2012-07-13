@@ -21,6 +21,8 @@ class UserAgent
         Symbian
         Vienna
         webOS
+        Safari
+        iPhone
       ]
 
       BUILD_VERSIONS = {

@@ -197,12 +197,12 @@ describe UserAgent::Browsers::Webkit do
 
     describe "iOS Safari" do
       describe "version mapping from Webkit version" do
-        it { "Mozilla/5.0 (iPhone; U; CPU iPhone OS 4_0_1 like Mac OS X; en-us) AppleWebKit/419.3 (KHTML, like Gecko) Mobile/8A306".should be_browser("iPhone").version("3.0").webkit_version("419.3").build("419.3").platform("iPhone").os("iOS 4.0.1").language("en-US").security(:strong).mobile(true) }
-        it { "Mozilla/5.0 (iPhone; U; CPU iPhone OS 4_0_1 like Mac OS X; en-us) AppleWebKit/525.20 (KHTML, like Gecko) Mobile/8A306".should be_browser("iPhone").version("3.1.1").webkit_version("525.20").build("525.20").platform("iPhone").os("iOS 4.0.1").language("en-US").security(:strong).mobile(true) }
-        it { "Mozilla/5.0 (iPhone; U; CPU iPhone OS 4_0_1 like Mac OS X; en-us) AppleWebKit/528.18 (KHTML, like Gecko) Mobile/8A306".should be_browser("iPhone").version("4.0").webkit_version("528.18").build("528.18").platform("iPhone").os("iOS 4.0.1").language("en-US").security(:strong).mobile(true) }
-        it { "Mozilla/5.0 (iPhone; U; CPU iPhone OS 4_0_1 like Mac OS X; en-us) AppleWebKit/531.21.10 (KHTML, like Gecko) Mobile/8A306".should be_browser("iPhone").version("4.0.4").webkit_version("531.21.10").build("531.21.10").platform("iPhone").os("iOS 4.0.1").language("en-US").security(:strong).mobile(true) }
-        it { "Mozilla/5.0 (iPhone; U; CPU iPhone OS 4_0_1 like Mac OS X; en-us) AppleWebKit/532.9 (KHTML, like Gecko) Mobile/8A306".should be_browser("iPhone").version("4.0.5").webkit_version("532.9").build("532.9").platform("iPhone").os("iOS 4.0.1").language("en-US").security(:strong).mobile(true) }
-        it { "Mozilla/5.0 (iPhone; U; CPU iPhone OS 4_0_1 like Mac OS X; en-us) AppleWebKit/533.17.9 (KHTML, like Gecko) Mobile/8A306".should be_browser("iPhone").version("5.0.2").webkit_version("533.17.9").build("533.17.9").platform("iPhone").os("iOS 4.0.1").language("en-US").security(:strong).mobile(true) }
+        it { "Mozilla/5.0 (iPhone; U; CPU iPhone OS 4_0_1 like Mac OS X; en-us) AppleWebKit/419.3 (KHTML, like Gecko) Mobile/8A306".should be_browser("UIWebView").version("3.0").webkit_version("419.3").build("419.3").platform("iPhone").os("iOS 4.0.1").language("en-US").security(:strong).mobile(true) }
+        it { "Mozilla/5.0 (iPhone; U; CPU iPhone OS 4_0_1 like Mac OS X; en-us) AppleWebKit/525.20 (KHTML, like Gecko) Mobile/8A306".should be_browser("UIWebView").version("3.1.1").webkit_version("525.20").build("525.20").platform("iPhone").os("iOS 4.0.1").language("en-US").security(:strong).mobile(true) }
+        it { "Mozilla/5.0 (iPhone; U; CPU iPhone OS 4_0_1 like Mac OS X; en-us) AppleWebKit/528.18 (KHTML, like Gecko) Mobile/8A306".should be_browser("UIWebView").version("4.0").webkit_version("528.18").build("528.18").platform("iPhone").os("iOS 4.0.1").language("en-US").security(:strong).mobile(true) }
+        it { "Mozilla/5.0 (iPhone; U; CPU iPhone OS 4_0_1 like Mac OS X; en-us) AppleWebKit/531.21.10 (KHTML, like Gecko) Mobile/8A306".should be_browser("UIWebView").version("4.0.4").webkit_version("531.21.10").build("531.21.10").platform("iPhone").os("iOS 4.0.1").language("en-US").security(:strong).mobile(true) }
+        it { "Mozilla/5.0 (iPhone; U; CPU iPhone OS 4_0_1 like Mac OS X; en-us) AppleWebKit/532.9 (KHTML, like Gecko) Mobile/8A306".should be_browser("UIWebView").version("4.0.5").webkit_version("532.9").build("532.9").platform("iPhone").os("iOS 4.0.1").language("en-US").security(:strong).mobile(true) }
+        it { "Mozilla/5.0 (iPhone; U; CPU iPhone OS 4_0_1 like Mac OS X; en-us) AppleWebKit/533.17.9 (KHTML, like Gecko) Mobile/8A306".should be_browser("UIWebView").version("5.0.2").webkit_version("533.17.9").build("533.17.9").platform("iPhone").os("iOS 4.0.1").language("en-US").security(:strong).mobile(true) }
       end
 
       describe "iPhone" do
@@ -223,8 +223,8 @@ describe UserAgent::Browsers::Webkit do
 
       describe "iPad" do
         it { "Mozilla/5.0 (iPad; U; CPU OS 3_2 like Mac OS X; en-us) AppleWebKit/531.21.10 (KHTML, like Gecko) Version/4.0.4 Mobile/7B367 Safari/531.21.10".should be_browser("Safari").version("4.0.4").webkit_version("531.21.10").build("531.21.10").platform("iPad").os("iOS 3.2").language("en-US").security(:strong).mobile(true) }
-        it { "Mozilla/5.0 (iPad; U; CPU iPhone OS 4_2_1 like Mac OS X; en_US) AppleWebKit (KHTML, like Gecko) Mobile [FBAN/FBForIPhone;FBAV/4.0;FBBV/4000.0;FBDV/iPad1,1;FBMD/iPad;FBSN/iPhone OS;FBSV/4.2.1;FBSS/1; FBCR/Maxis;FBID/tablet;FBLC/en_US;FBSF/1.0]".should be_browser("iPhone").platform("iPad").os("iOS 4.2.1").language("en-US").security(:strong).mobile(true) }
-        it { "Mozilla/5.0 (iPad; U; CPU iPhone OS 5_0 like Mac OS X; en_US) AppleWebKit (KHTML, like Gecko) Mobile [FBAN/FBForIPhone;FBAV/4.1;FBBV/4100.0;FBDV/iPad2,2;FBMD/iPad;FBSN/iPhone OS;FBSV/5.0;FBSS/1; FBCR/".should be_browser("iPhone").platform("iPad").os("iOS 5.0").language("en-US").security(:strong).mobile(true) }
+        it { "Mozilla/5.0 (iPad; U; CPU iPhone OS 4_2_1 like Mac OS X; en_US) AppleWebKit (KHTML, like Gecko) Mobile [FBAN/FBForIPhone;FBAV/4.0;FBBV/4000.0;FBDV/iPad1,1;FBMD/iPad;FBSN/iPhone OS;FBSV/4.2.1;FBSS/1; FBCR/Maxis;FBID/tablet;FBLC/en_US;FBSF/1.0]".should be_browser("UIWebView").platform("iPad").os("iOS 4.2.1").language("en-US").security(:strong).mobile(true) }
+        it { "Mozilla/5.0 (iPad; U; CPU iPhone OS 5_0 like Mac OS X; en_US) AppleWebKit (KHTML, like Gecko) Mobile [FBAN/FBForIPhone;FBAV/4.1;FBBV/4100.0;FBDV/iPad2,2;FBMD/iPad;FBSN/iPhone OS;FBSV/5.0;FBSS/1; FBCR/".should be_browser("UIWebView").platform("iPad").os("iOS 5.0").language("en-US").security(:strong).mobile(true) }
       end
     end
 

@@ -21,6 +21,8 @@ class UserAgent
         Symbian
         Vienna
         webOS
+        Safari
+        iPhone
       ]
 
       BUILD_VERSIONS = {
@@ -78,7 +80,11 @@ class UserAgent
       end
 
       def browser
-        WEBKIT_BROWSERS.detect { |browser| detect_user_agent_by_product_or_comment(browser) } || "Safari"
+        browser_name = WEBKIT_BROWSERS.detect { |browser| detect_user_agent_by_product_or_comment(browser) } || "Safari"
+        if browser_name == 'iPhone'
+          browser_name = 'UIWebView'
+        end
+        browser_name
       end
 
       def version

@@ -81,9 +81,8 @@ class UserAgent
 
       def browser
         browser_name = WEBKIT_BROWSERS.detect { |browser| detect_user_agent_by_product_or_comment(browser) } || "Safari"
-        if browser_name == 'iPhone'
-          browser_name = 'UIWebView'
-        end
+        browser_name = 'UIWebView' if browser_name == 'iPhone'
+
         browser_name
       end
 

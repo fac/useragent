@@ -6,6 +6,7 @@
 
 ### Improvements
 
+- [2012/08/23] [#7][]: Separate detection of UIWebView and Safari on iOS. ([@Migoo][])
 - [2012/07/03] [#6][]: Add detection of Firefox on Android. ([@Migoo][])
 - [2012/03/21] [#5][]: Detect googlebot-mobile user agent as mobile. ([@Migoo][])
 - [2011/10/19] [#4][]: Avoid lexical comparisons of versions. ([@port8080][])
@@ -65,6 +66,7 @@
 [#4]: https://github.com/jilion/useragent/issues/4
 [#5]: https://github.com/jilion/useragent/issues/5
 [#6]: https://github.com/jilion/useragent/issues/6
+[#7]: https://github.com/jilion/useragent/issues/7
 [@Migoo]: https://github.com/Migoo
 [@dblock]: https://github.com/dblock
 [@noefroidevaux]: https://github.com/noefroidevaux

@@ -45,7 +45,7 @@ class UserAgent
           $1
         else
           bi = browser_info
-          if bi && v = send(bi.is_a?(Array) ? bi[0] : bi).version
+          if bi && v = detect_user_agent_by_product_or_comment(bi.is_a?(Array) ? bi[0] : bi).version
             v.partition('/')[0] # Handle strange version specification like 'Sunrise/4.0.1/like'
           else
             super

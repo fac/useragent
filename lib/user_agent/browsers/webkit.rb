@@ -105,7 +105,7 @@ class UserAgent
           nil
 
         # Try to automatically detect the version of all other browsers
-        elsif v = send(browser).version
+        elsif v = detect_user_agent_by_product_or_comment(browser).version
           v.gsub(/^v/, '') # Handle 'OmniWeb/v563.15'
         end
       end

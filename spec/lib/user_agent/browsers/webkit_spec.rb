@@ -203,6 +203,7 @@ describe UserAgent::Browsers::Webkit do
         it { "Mozilla/5.0 (iPhone; U; CPU iPhone OS 4_0_1 like Mac OS X; en-us) AppleWebKit/531.21.10 (KHTML, like Gecko) Mobile/8A306".should be_browser("UIWebView").version("4.0.4").webkit_version("531.21.10").build("531.21.10").platform("iPhone").os("iOS 4.0.1").language("en-US").security(:strong).mobile(true) }
         it { "Mozilla/5.0 (iPhone; U; CPU iPhone OS 4_0_1 like Mac OS X; en-us) AppleWebKit/532.9 (KHTML, like Gecko) Mobile/8A306".should be_browser("UIWebView").version("4.0.5").webkit_version("532.9").build("532.9").platform("iPhone").os("iOS 4.0.1").language("en-US").security(:strong).mobile(true) }
         it { "Mozilla/5.0 (iPhone; U; CPU iPhone OS 4_0_1 like Mac OS X; en-us) AppleWebKit/533.17.9 (KHTML, like Gecko) Mobile/8A306".should be_browser("UIWebView").version("5.0.2").webkit_version("533.17.9").build("533.17.9").platform("iPhone").os("iOS 4.0.1").language("en-US").security(:strong).mobile(true) }
+        it { "Mozilla/5.0(iPhone;U;CPUiPhoneOS4_3_5likeMacOSX;ru-ru)AppleWebKit/533.17.9(KHTML,likeGecko)Mobile/8L1".should be_browser("UIWebView").version("5.0.2").webkit_version("533.17.9").build("533.17.9").platform("iPhone").os("iOS 4.3.5").language("ru-RU").security(:strong).mobile(true) }
       end
 
       describe "iPhone" do

@@ -126,8 +126,8 @@ class UserAgent
         # Examples:
         #   CPU like Mac OS X => 'iOS'
         #   CPU iPhone OS 3_1_3 like Mac OS X => 'iOS 3.1.3'
-        elsif ua = detect_user_agent_by_comment(/CPU.*like Mac OS X/i)
-          ua.comment.detect { |comm| comm =~ /CPU (?:iPhone )?OS ([\d_]+) like Mac OS X/i }
+        elsif ua = detect_user_agent_by_comment(/CPU.*like\s?Mac\s?OS\s?X/i)
+          ua.comment.detect { |comm| comm =~ /CPU\s?(?:iPhone\s?)?OS\s?([\d_]+)\s?like\s?Mac\s?OS\s?X/i }
           "iOS#{" #{$1.gsub(/_/, '.')}" unless !$1 || $1.strip.empty?}"
 
         else

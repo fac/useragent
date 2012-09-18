@@ -514,6 +514,7 @@ describe UserAgent::Browsers::InternetExplorer do
 
       it { "Mozilla/4.0 (compatible; MSIE 8.0; Windows NT 6.0)".should be_browser("IE").version("8.0").platform("Windows").os("Windows Vista").compatible(true) }
       it { "Mozilla/4.0 (MSIE 8.0; Windows NT 7.1; Avatar26; Intel Mac OS X 10.5; iPad; Android 1.0; X11; Linux i686; Ubuntu 8.04; Macintosh CPU iPhone OS 3_2 like Mac OS X; Symbian OS 9; rv:1.9.1.8; GTB6; .NET".should be_browser("IE").version("8.0").platform("Windows").os("Windows NT 7.1") }
+      it { "Empty (compatible; MSIE 8.0; Windows NT 6.1; Trident/4.0; byond_4.0; GTB7.4; SLCC2; .NET CLR 2.0.50727; .NET CLR 3.5.30729; .NET CLR 3.0.30729; Media Center PC 6.0; InfoPath.2; .NET4.0E; .NET4.0C; AskTbFWV5/5.15.4.23821)".should be_browser("IE").version("8.0").platform("Windows").os("Windows 7").compatible(true) }
     end
 
 

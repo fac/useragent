@@ -57,6 +57,7 @@ describe UserAgent::Browsers::Opera do
       it { "Opera/9.23 (Windows NT 6.0; U; da)".should be_browser("Opera").version("9.23").platform("Windows").os("Windows Vista").language("da").security(:strong) }
       it { "Opera/9.27 (Windows NT 5.1; U; en)".should be_browser("Opera").version("9.27").platform("Windows").os("Windows XP").language("en").security(:strong) }
       it { "Opera/9.80 (Windows NT 5.1; U; ru) Presto/2.7.62 Version/11.01".should be_browser("Opera").version("11.01").platform("Windows").os("Windows XP").language("ru").security(:strong) }
+      it { "Opera/9.80 (Windows NT 6.1; Win64; x64; U; ru) Presto/2.10.289 Version/12.02".should be_browser("Opera").version("12.02").platform("Windows").os("Windows 7").language("ru") }
     end
 
     describe "Macintosh" do

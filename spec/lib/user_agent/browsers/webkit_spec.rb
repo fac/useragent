@@ -145,6 +145,10 @@ describe UserAgent::Browsers::Webkit do
       it { "Mozilla/5.0 (SymbianOS/9.3; U; Series60/3.2 Samsung/I8510/DJHJ4; Profile/MIDP-2.1 Configuration/CLDC-1.1 ) AppleWebKit/413 (KHTML, like Gecko) Safari/413".should be_browser("Symbian").webkit_version("413").build("413").platform("Samsung").os("SymbianOS 9.3").security(:strong).mobile(true) }
     end
 
+    describe "WhatsEye" do
+      it { "WhatsEye (iPhone) AppleWebKit (KHTML, like Gecko) Mobile/8F192".should be_browser("WhatsEye").platform("iPhone").security(:strong).mobile(true) }
+    end
+
     describe "Destkop Safari" do
       describe "Windows" do
         it { "Mozilla/5.0 (Windows; U; Windows NT 5.1; en) AppleWebKit/525.18 (KHTML, like Gecko) Version/3.1.1 Safari/525.18".should be_browser("Safari").version("3.1.1").webkit_version("525.18").build("525.18").platform("Windows").os("Windows XP").language("en").security(:strong) }

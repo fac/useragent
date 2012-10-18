@@ -4,7 +4,6 @@ require 'user_agent/linux_distributions'
 require 'user_agent/operating_systems'
 require 'user_agent/platforms'
 require 'user_agent/languages'
-require 'user_agent/countries'
 
 class UserAgent
 

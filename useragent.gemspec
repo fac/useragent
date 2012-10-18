@@ -6,7 +6,7 @@ Gem::Specification.new do |s|
   s.name        = 'useragent'
   s.version     = UserAgent::VERSION
   s.platform    = Gem::Platform::RUBY
-  s.authors     = ['Joshua Peek', 'Rémy Coutable']
+  s.authors     = ['Joshua Peek', 'Remy Coutable']
   s.email       = ['josh@joshpeek.com', 'remy@jilion.com']
   s.homepage    = 'https://github.com/jilion/useragent'
   s.summary     = 'HTTP User Agent parser.'
